@@ -1,4 +1,4 @@
-const concepts = [{
+const summaries = [{
         id: 1,
         img: "aaaa.png",
         alt: "タイマー",
@@ -27,4 +27,4 @@ const concepts = [{
         description: "some description here.",
     },
 ];
-export default concepts;
+export default summaries;

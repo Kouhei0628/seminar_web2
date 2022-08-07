@@ -1,78 +1,82 @@
-import thieves from "./data/coats";
-import members from "./data/members";
 import styled from "styled-components";
 import navImages from "./data/mainNav-img";
-import concepts from "./data/concepts";
+import { createContext, useState } from "react";
+import Modal from "./Modal";
+
+import { Link } from "react-router-dom";
+import Story from "./sections/Story";
+import Thieves from "./sections/Thieves";
+import Summary from "./sections/Summary";
+import Location from "./sections/Location";
+import Members from "./sections/Members";
+
+export const ModalContext = createContext();
 
 const Main = () => {
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => setModal(p => !p);
+
   return (
-    <main className='main'>
-      <div className='main__wrap'>
-        <nav className='main__nav'>
-          {navImages.map(navImg => (
-            <div key={navImg.id}>
-              <img src={navImg.img} alt={navImg.alt}></img>
-            </div>
-          ))}
-        </nav>
-        <section className='main__story'>
-          <div className='main__story__header'></div>
-          <div className='main__story__content'></div>
-        </section>
-        <section className='main__thieves'>
-          <div className='main__thieves__header'></div>
-          <div className='main__thieves__content'>
-            <ThievesList>
-              {thieves.map(thief => (
-                <li key={thief.id} className={`thief${thief.id}`}>
-                  <img src={thief.image} alt={thief.alt} />
-                  <div className=''>{thief.name}</div>
-                </li>
-              ))}
-            </ThievesList>
-          </div>
-        </section>
-        <section className='main__concept'>
-          <div className='main__concept__header'></div>
-          <div className='main__concept__message'></div>
-          <div className='main__concept__content'>
-            <ul>
-              {concepts.map(concept => (
-                <li key={concept.id}>
-                  <img src={concept.img} alt={`${concept.alt}の画像`} />
-                  <div>{concept.title}</div>
-                  <div>{concept.description}</div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-        <section className='main__location'>
-          <div className='main__location__header'></div>
-          <div className='main__location__text'></div>
-          <div className='main__location__map'></div>
-        </section>
-        <section className='main__members'>
-          <div className='main__members__header'></div>
-          <div className='main__members__content'>
-            {members.map(member => (
-              <div key={member.id}>
-                <img
-                  src={member.iconPath}
-                  alt={`${member.name}のアイコン画像`}
-                />
-                <div>{member.name}</div>
-              </div>
+    <main style={{ textAlign: "center" }} className='main'>
+      <ModalContext.Provider value={{ toggleModal }}>
+        {modal && <Modal />}
+      </ModalContext.Provider>
+
+      <MainWrap className='main__wrap'>
+        <Navigation>
+          <NaviList>
+            {navImages.map(navImg => (
+              <li key={navImg.id}>
+                <button>
+                  <Link to={`${navImg.ref}`}>
+                    <img
+                      src={`${process.env.PUBLIC_URL}/img/${navImg.img}`}
+                      alt={navImg.alt}
+                    />{" "}
+                  </Link>
+                </button>
+              </li>
             ))}
-          </div>
-        </section>
-      </div>
+          </NaviList>
+        </Navigation>
+        <Story />
+        <Thieves />
+        <Summary />
+        <Location />
+        <Members />
+      </MainWrap>
     </main>
   );
 };
 export default Main;
 
-const ThievesList = styled.ul`
+const MainWrap = styled.div`
+  width: 100%;
+`;
+
+const Navigation = styled.nav`
+  position: relative;
+  width: 100%;
+`;
+const NaviList = styled.ul`
+  margin: 80px auto;
+  width: 80%;
   padding: 0;
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  li {
+    width: 60px;
+    background-color: aliceblue;
+    button {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &:nth-child(1) {
+    }
+  }
 `;
