@@ -4,6 +4,7 @@ import Main from "./components/Main";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { createContext } from "react";
+import Gears from "./components/ornaments/Gears";
 
 export const widthContext = createContext();
 
@@ -11,6 +12,8 @@ const Home = () => {
   return (
     <>
       <Header />
+      <Gears position={`left`} />
+      <Gears position={`right`} />
       <Main />
       <Footer />
     </>
