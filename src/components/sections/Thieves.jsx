@@ -4,13 +4,13 @@ import thieves from "../data/coats";
 const Thieves = () => {
   return (
     <section id='thieves' className='main__thieves'>
-      <div className='main__thieves__header'></div>
+      <div className='main__thieves__header'>怪盗団</div>
       <div className='main__thieves__content'>
         <ThievesList>
           {thieves.map(thief => (
             <li key={thief.id}>
               <img src={thief.image} alt={thief.alt} />
-              <div className=''>{thief.name}</div>
+              <div>{thief.name}</div>
             </li>
           ))}
         </ThievesList>
@@ -21,12 +21,17 @@ const Thieves = () => {
 export default Thieves;
 const ThievesList = styled.ul`
   padding: 0;
-  width: 100%;
+  margin: 20px auto;
+  width: 90%;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  & > li {
-    width: 50%;
+  gap: 12px;
+  justify-content: center;
+  li {
+    width: 40%;
+    img {
+      width: 100%;
+    }
   }
 `;
