@@ -3,12 +3,15 @@ import styled from "styled-components";
 const Header = () => {
   return (
     <header className='header'>
-      <HeaderWrap className='header__wrap'>
+      <HeaderWrap>
+        <video autoPlay muted loop style={{ width: "100%" }}>
+          <source src={`${process.env.PUBLIC_URL}/img/fireworks.mp4`} />
+        </video>
         <HeaderCloud>
-          <HeaderLogo className='header__logo'>
+          <HeaderLogo>
             <img src='some.jpg' alt='メインロゴ' />
           </HeaderLogo>
-          <HeaderCopy className='header__copy'>
+          <HeaderCopy>
             <img src='catch.png' alt='羊皮紙の画像' />
             <p>
               栄光を盗みとれ。
@@ -17,7 +20,7 @@ const Header = () => {
             </p>
           </HeaderCopy>
         </HeaderCloud>
-        <HeaderVisual className='headeHeaderVisual'>
+        <HeaderVisual>
           <img src='some.png' alt='メインヴィジュアル' />
         </HeaderVisual>
       </HeaderWrap>

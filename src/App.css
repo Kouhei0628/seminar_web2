@@ -1,12 +1,19 @@
 * {
     font-family: serif;
+    box-sizing: border-box;
 }
 
 body,
 html {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+}
+
+@supports (-webkit-touch-callout: none) {
+    body {
+        height: -webkit-fill-available;
+    }
 }
 
 button {
@@ -14,8 +21,3 @@ button {
     border: none;
     padding: 0;
 }
-
-
-/* main {
-    width: 100%;
-} */

@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { mScreen } from "../breakpoints/breakpoints";
+import { breakpoints } from "../../breakpoints/breakpoints";
 import summaries from "../data/summaries";
 
 const Summary = () => {
   return (
-    <SummarySection id='summary' className='main__summary'>
-      <div className='main__summary__header'>概要</div>
-      <SummaryMessage className='main__summary__message'></SummaryMessage>
-      <SummaryContents className='main__summary__content'>
+    <SummarySection id='summary'>
+      <div>概要</div>
+      <SummaryMessage></SummaryMessage>
+      <SummaryContents>
         <SummaryList>
           {summaries.map(summary => (
             <li key={summary.id}>
@@ -16,7 +16,7 @@ const Summary = () => {
                 alt={`${summary.alt}の画像`}
               />
               <div>{summary.title}</div>
-              <div>{summary.description}</div>
+              <div style={{ fontSize: "12px" }}>{summary.description}</div>
             </li>
           ))}
         </SummaryList>
@@ -29,8 +29,12 @@ export default Summary;
 const SummarySection = styled.section`
   margin: 50px auto;
   width: 80%;
-  height: 700px;
+  height: calc(600px + 30vw);
   position: relative;
+  overflow: hidden;
+  @media (min-width: ${breakpoints.m}) {
+    height: calc(320px + 30vw);
+  } ;
 `;
 const SummaryList = styled.ul`
   position: absolute;
@@ -41,12 +45,12 @@ const SummaryList = styled.ul`
   width: 90%;
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 15px;
   li {
-    width: 40%;
-    @media (min-width: ${mScreen}) {
+    width: 45%;
+    @media (min-width: ${breakpoints.m}) {
       width: 20%;
     }
     img {
