@@ -1,22 +1,28 @@
 import styled from "styled-components";
 import { breakpoints } from "../../breakpoints/breakpoints";
-import summaries from "../data/summaries";
+import { PubUrl } from "../../data/PubUrl";
+import summaries from "../../data/summaries";
+import HeaderOrn from "../ornaments/HeaderOrn";
 
 const Summary = () => {
   return (
     <SummarySection id='summary'>
-      <div>概要</div>
+      <HeaderOrn logo='summary' />
       <SummaryMessage></SummaryMessage>
       <SummaryContents>
         <SummaryList>
           {summaries.map(summary => (
             <li key={summary.id}>
               <img
-                src={`${process.env.PUBLIC_URL}/img/${summary.img}`}
+                src={`${PubUrl}/img/summary/sum_${summary.img}.png`}
                 alt={`${summary.alt}の画像`}
               />
-              <div>{summary.title}</div>
-              <div style={{ fontSize: "12px" }}>{summary.description}</div>
+              <Title>
+                <p>{summary.title}</p>
+              </Title>
+              <Description>
+                <p>{summary.description}</p>
+              </Description>
             </li>
           ))}
         </SummaryList>
@@ -29,20 +35,13 @@ export default Summary;
 const SummarySection = styled.section`
   margin: 50px auto;
   width: 80%;
-  height: calc(600px + 30vw);
-  position: relative;
-  overflow: hidden;
   @media (min-width: ${breakpoints.m}) {
-    height: calc(320px + 30vw);
   } ;
 `;
 const SummaryList = styled.ul`
-  position: absolute;
-  top: 240px;
-  left: 50%;
-  transform: translateX(-50%);
   padding: 0;
-  width: 90%;
+  margin: 0 auto;
+  width: 95%;
   list-style: none;
   display: flex;
   justify-content: center;
@@ -58,6 +57,7 @@ const SummaryList = styled.ul`
     }
   }
 `;
+
 const SummaryMessage = styled.div`
   width: 100%;
   height: 300px;
@@ -65,4 +65,32 @@ const SummaryMessage = styled.div`
 `;
 const SummaryContents = styled.div`
   width: 100%;
+`;
+const Title = styled.div`
+  background-image: url(${PubUrl}/img/common_titlebg.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin-bottom: 20px;
+  p {
+    margin: 0;
+    color: white;
+    font-size: 15px;
+  }
+`;
+const Description = styled.div`
+  background-image: url(${PubUrl}/img/summary/sum_descbg.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: calc(25px + 10vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  p {
+    margin: 0;
+    font-size: 9px;
+    font-weight: 600;
+  }
 `;

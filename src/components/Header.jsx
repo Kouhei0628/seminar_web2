@@ -1,87 +1,128 @@
 import styled from "styled-components";
+import { breakpoints } from "../breakpoints/breakpoints";
+import { colors } from "../data/colors";
+import { PubUrl } from "../data/PubUrl";
 
 const Header = () => {
   return (
-    <header className='header'>
+    <header>
       <HeaderWrap>
-        <video autoPlay muted loop style={{ width: "100%" }}>
-          <source src={`${process.env.PUBLIC_URL}/img/fireworks.mp4`} />
-        </video>
-        <HeaderCloud>
-          <HeaderLogo>
-            <img src='some.jpg' alt='メインロゴ' />
-          </HeaderLogo>
-          <HeaderCopy>
-            <img src='catch.png' alt='羊皮紙の画像' />
-            <p>
-              栄光を盗みとれ。
-              <br />
-              盗むのは国の未来だ。
-            </p>
-          </HeaderCopy>
-        </HeaderCloud>
-        <HeaderVisual>
+        <TopmostCloud />
+        <Prov></Prov>
+        <CloudWrap>
+          <CloudTop />
+          <HeaderCloud>
+            <LogoAndCopy>
+              <HeaderLogo>
+                <img
+                  src={`${PubUrl}/img/header/header_logo.png`}
+                  alt='メインロゴ'
+                />
+              </HeaderLogo>
+              <HeaderCopy>
+                <p>
+                  栄光を盗みとれ。
+                  <br />
+                  盗むのは国の未来だ。
+                </p>
+              </HeaderCopy>
+            </LogoAndCopy>
+          </HeaderCloud>
+          <CloudBottom />
+        </CloudWrap>
+
+        {/* <HeaderVisual>
           <img src='some.png' alt='メインヴィジュアル' />
-        </HeaderVisual>
+        </HeaderVisual> */}
       </HeaderWrap>
     </header>
   );
 };
 export default Header;
-const HCloudHeight = 330;
-const HVisualHeight = 310;
-const HOverlap = 80;
 
 const HeaderWrap = styled.div`
+  outline: 1px white;
   position: relative;
   width: 100%;
-  min-height: ${HCloudHeight + HVisualHeight - HOverlap}px;
   text-align: center;
-  background-color: #b2f1ff;
+`;
+const TopmostCloud = styled.div`
+  background-image: url(${PubUrl}/img/story/story_bg-top.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  transform: rotate(180deg);
+  width: 100%;
+  height: 30vw;
+  @media (min-width: ${breakpoints.m}) {
+    display: none;
+  }
 `;
 const HeaderCloud = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  background-color: aliceblue;
-  opacity: 0.8;
+  background-color: ${colors.storyBg};
   width: 100%;
-  height: ${HCloudHeight}px;
+  height: 450px;
+  position: relative;
+`;
+const CloudWrap = styled.div`
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+`;
+const CloudTop = styled.div`
+  background-image: url(${PubUrl}/img/story/story_bg-top.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  width: 100%;
+  height: 150px;
+`;
+const CloudBottom = styled(CloudTop)`
+  background-image: url(${PubUrl}/img/story/story_bg-bottom.png);
+  background-position: center bottom;
 `;
 const HeaderVisual = styled.div`
   position: absolute;
-  top: ${HCloudHeight - HOverlap}px;
   width: 100%;
-  height: ${HVisualHeight}px;
   z-index: 1;
-  background-color: #ffc7c7;
   & > img {
     width: 100%;
   }
+`;
+const Prov = styled.div`
+  width: 100%;
+  height: 50vw;
+  background-color: black;
+`;
+const LogoAndCopy = styled.div`
+  position: absolute;
+  top: 0;
 `;
 const HeaderLogo = styled.div`
-  margin-top: 60px;
-`;
-const HeaderCopy = styled.div`
-  margin-top: 30px;
+  width: 67%;
   margin-left: auto;
   margin-right: auto;
-  width: 280px;
-  height: 150px;
-  position: relative;
-  background-color: #ffc4a8;
-  & > img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  img {
     width: 100%;
-    height: 100%;
-    z-index: 1;
-    background-color: #fff;
-    opacity: 0.3;
   }
+`;
+const HeaderCopy = styled.div`
+  background-image: url(${PubUrl}/img/header/header_copy-bg.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: 160px;
+  position: relative;
   & > p {
     position: absolute;
     width: 100%;
@@ -90,5 +131,6 @@ const HeaderCopy = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
+    font-weight: 700;
   }
 `;

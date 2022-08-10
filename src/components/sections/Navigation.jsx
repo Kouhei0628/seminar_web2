@@ -1,21 +1,26 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import navImages from "../data/mainNav-img";
+import { breakpoints } from "../../breakpoints/breakpoints";
+import navImages from "../../data/mainNav-img";
+import { PubUrl } from "../../data/PubUrl";
 
 const Navigation = () => {
   return (
     <>
-      <NavigationStyle>
+      <NavigationStyle className='navigation'>
         <NaviList>
           {navImages.map(navImg => (
             <li key={navImg.id}>
-              <button>
-                <Link to={`/${navImg.ref}`}>
-                  <img
-                    src={`${process.env.PUBLIC_URL}/img/${navImg.img}`}
-                    alt={navImg.alt}
-                  />
-                </Link>
+              <button style={{ width: "100%", height: "100%" }}>
+                <NavIcon
+                  className='nav-icon'
+                  src={`${PubUrl}/img/navigation/nav_${navImg.ref}.png`}
+                  alt={navImg.alt}
+                />
+                <NavLogo
+                  className='nav-logo'
+                  src={`${PubUrl}/img/logos/logo_${navImg.ref}-fff.svg`}
+                  alt=''
+                />
               </button>
             </li>
           ))}
@@ -30,6 +35,9 @@ const NavigationStyle = styled.nav`
   position: relative;
   width: 100%;
   margin: 150px auto;
+  @media (max-width: ${breakpoints.m}) {
+    display: none;
+  }
 `;
 const NaviList = styled.ul`
   margin: 80px auto;
@@ -41,15 +49,36 @@ const NaviList = styled.ul`
   justify-content: center;
   gap: 45px;
   li {
-    width: 81px;
-    background-color: aliceblue;
-    button {
-      img {
-        width: 100%;
-        height: 100%;
+    margin: 0;
+    max-width: 137px;
+    height: 137px;
+    position: relative;
+    &:nth-child(3) {
+      .nav-icon {
+        max-width: 150px;
       }
     }
-    &:nth-child(1) {
+    &:nth-child(4) {
+      .nav-logo {
+        top: 45%;
+      }
+    }
+    &:nth-child(1),
+    :nth-child(6) {
+      .nav-icon {
+        height: 140px;
+      }
     }
   }
+`;
+const NavIcon = styled.img`
+  max-width: 130px;
+  height: auto;
+`;
+const NavLogo = styled.img`
+  position: absolute;
+  height: 33px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
