@@ -3,18 +3,14 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { createContext } from "react";
-import Gears from "./components/ornaments/Gears";
-
-export const widthContext = createContext();
+import FixNavigation from "./components/FixNavigation";
 
 const Home = () => {
   return (
     <>
-      <Header />
-      <Gears position={`left`} />
-      <Gears position={`right`} />
-      <Main />
+      <FixNavigation />
+      <Header className='header' />
+      <Main className='main' />
       <Footer />
     </>
   );

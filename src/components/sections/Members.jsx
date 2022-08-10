@@ -1,17 +1,19 @@
 import styled from "styled-components";
 import { breakpoints } from "../../breakpoints/breakpoints";
-import members from "../data/members";
+import members from "../../data/members";
+import { PubUrl } from "../../data/PubUrl";
+import HeaderOrn from "../ornaments/HeaderOrn";
 
 const Members = () => {
   return (
     <MembersSection id='members'>
-      <div className='main__members__header'>団員</div>
+      <HeaderOrn logo='members' />
       <div className='main__members__content'>
         <MembersList>
           {members.map((member, i) => (
             <li key={member.id}>
               <MembersImg
-                src={`${process.env.PUBLIC_URL}/img/${member.img}`}
+                src={`${PubUrl}/img/members/mem_icon.svg`}
                 alt={`${member.name}のアイコン画像`}
               />
               <div>{member.name}</div>
@@ -36,30 +38,30 @@ const MembersSection = styled.section`
   }
 `;
 const MembersImg = styled.img`
-  width: 35px;
-  margin-right: 10px;
+  width: 180px;
 `;
 const MembersList = styled.ul`
-  margin: 30px auto;
   padding: 0;
   width: 100%;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #ffb3b3;
   & > li {
     width: calc(100% / 2);
-    height: 60px;
-    margin-bottom: 13px;
+    margin-bottom: 19px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    background-color: #cbcbcb;
-    & > div {
-      font-size: 13px;
+    align-items: flex-end;
+    position: relative;
+    div {
+      position: absolute;
+      bottom: 25%;
+      left: 88px;
+      font-size: 12px;
+      color: white;
     }
-    @media (min-width: ${breakpoints.m}) {
+    @media (min-width: 460px) {
       width: calc(100% / 3);
     }
     @media (min-width: ${breakpoints.l}) {

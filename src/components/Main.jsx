@@ -8,6 +8,7 @@ import Summary from "./sections/Summary";
 import Location from "./sections/Location";
 import Members from "./sections/Members";
 import Navigation from "./sections/Navigation";
+import Gears from "./ornaments/Gears";
 
 export const ModalContext = createContext();
 
@@ -18,12 +19,20 @@ const Main = () => {
 
   return (
     <main style={mainStyle} className='main'>
+      <Ornaments className='ornaments'>
+        <Gears key={`1`} position={`left`} />
+        <Gears key={`4`} position='right' />
+        <Gears key={`3`} position='left' />
+        <Gears key={`5`} position='right' />
+        <Gears key={`6`} position='left' />
+      </Ornaments>
+
       <ModalContext.Provider value={{ toggleModal }}>
         {modal && <Modal />}
       </ModalContext.Provider>
 
       <MainWrap className='main__wrap'>
-        <Navigation />
+        <Navigation className='navigation' />
         <Story />
         <Thieves />
         <Summary />
@@ -34,6 +43,11 @@ const Main = () => {
   );
 };
 export default Main;
+
+const Ornaments = styled.div`
+  position: absolute;
+  z-index: -1;
+`;
 
 const mainStyle = {
   textAlign: "center",
