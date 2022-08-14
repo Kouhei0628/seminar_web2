@@ -20,7 +20,6 @@ const Gears = ({ position }) => {
       { transform: "translateX(-100%)" },
       { transform: "translateX(-65%)" }
     );
-    gsap.registerPlugin(ScrollTrigger);
     const tlB = gsap.timeline({
       scrollTrigger: {
         trigger: ".main",

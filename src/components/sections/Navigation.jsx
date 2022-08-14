@@ -1,26 +1,31 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { breakpoints } from "../../breakpoints/breakpoints";
 import navImages from "../../data/mainNav-img";
 import { PubUrl } from "../../data/PubUrl";
 
-const Navigation = () => {
+const Navigation = ({ setRef }) => {
   return (
     <>
-      <NavigationStyle className='navigation'>
+      <NavigationStyle>
         <NaviList>
           {navImages.map(navImg => (
             <li key={navImg.id}>
-              <button style={{ width: "100%", height: "100%" }}>
+              <button
+                onClick={() => setRef(navImg.ref)}
+                style={{ width: "100%", height: "100%" }}>
                 <NavIcon
                   className='nav-icon'
                   src={`${PubUrl}/img/navigation/nav_${navImg.ref}.png`}
                   alt={navImg.alt}
                 />
-                <NavLogo
-                  className='nav-logo'
-                  src={`${PubUrl}/img/logos/logo_${navImg.ref}-fff.svg`}
-                  alt=''
-                />
+                <Link to={`/#${navImg.ref}`}>
+                  <NavLogo
+                    className='nav-logo'
+                    src={`${PubUrl}/img/logos/logo_${navImg.ref}-fff.svg`}
+                    alt={navImg.alt}
+                  />
+                </Link>
               </button>
             </li>
           ))}
@@ -53,6 +58,15 @@ const NaviList = styled.ul`
     max-width: 137px;
     height: 137px;
     position: relative;
+    border-radius: 50%;
+    &:hover {
+      transition: all 0.2s linear;
+      transform: scale(1.1);
+      img {
+        transition: all 0.2s linear;
+        filter: drop-shadow(0 0 15px black);
+      }
+    }
     &:nth-child(3) {
       .nav-icon {
         max-width: 150px;

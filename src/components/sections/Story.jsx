@@ -77,6 +77,7 @@ const fontSizes = {
 const StorySection = styled.section`
   margin: 56px auto;
   width: 100vw;
+  margin-top: -90px;
 `;
 
 const StoryWrap = styled.div`

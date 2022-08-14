@@ -84,6 +84,10 @@ const SummaryList = styled.ul`
       width: 100%;
     }
   }
+  @media (min-width: ${breakpoints.m}) {
+    transform: translateY(-50px);
+    width: 80%;
+  }
 `;
 
 const SummaryMessage = styled.div`
@@ -101,6 +105,12 @@ const SummaryMessage = styled.div`
   img {
     transform: translateY(-15px);
     width: calc(260px - 5vw);
+  }
+  @media (min-width: ${breakpoints.m}) {
+    height: calc(250px + 8vw);
+    img {
+      width: calc(260px + 19vw);
+    }
   }
 `;
 
@@ -128,6 +138,7 @@ const Description = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  width: 100%;
   height: calc(25px + 10vw);
   display: flex;
   justify-content: center;
@@ -138,6 +149,18 @@ const Description = styled.div`
     font-size: 11px;
     width: 80%;
     font-weight: 600;
+  }
+  @media (min-width: ${breakpoints.m}) {
+    height: calc(15px + 5vw);
+    p {
+      font-size: 9px;
+      width: 95%;
+    }
+  }
+  @media (min-width: 900px) {
+    p {
+      font-size: 11px;
+    }
   }
 `;
 

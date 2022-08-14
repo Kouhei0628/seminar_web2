@@ -1,11 +1,12 @@
 * {
     font-family: serif;
     box-sizing: border-box;
+    outline: 1px solid red;
 }
 
 body,
 html {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     margin: 0;
     background-color: #2c2825;
@@ -29,38 +30,46 @@ button {
     padding: 0;
 }
 
-header {
-    height: calc(550px + 20vw);
+.header {
+    height: 210vw;
+}
+
+@media (min-width: 360px) {
+    .header {
+        height: 200vw;
+    }
+}
+
+@media (min-width: 480px) {
+    .header {
+        height: 160vw;
+    }
+}
+
+@media (min-width: 580px) {
+    .header {
+        height: 150vw;
+    }
+}
+
+@media (min-width: 630px) {
+    .header {
+        height: 150vw;
+    }
+}
+
+@media (min-width: 768px) {
+    .header {
+        height: 120vw;
+    }
+}
+
+@media (min-width:1025px) {
+    .header {
+        height: 100vw;
+    }
 }
 
 footer {
-    height: 190px;
+    height: 290px;
 }
-
-
-/* .fix-nav {
-    position: -webkit-fixed;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 400;
-    height: 60px;
-    width: 100vw;
-    background-color: #fff;
-    visibility: hidden;
-    transition: all 0.8s ease-in-out;
-    transform: translateY(100%);
-    transform-origin: top;
-}
-
-.fix-nav.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.fix-nav.hidden {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(100%);
-} */

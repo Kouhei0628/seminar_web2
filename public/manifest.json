@@ -1,0 +1,19 @@
+{
+    "short_name": "怪盗の夜宴",
+    "name": "怪盗の夜宴",
+    "icons": [{
+            "src": "favicon.ico",
+            "type": "image/x-icon",
+            "sizes": "192x192"
+        },
+        {
+            "src": "apple-touch-icon.ico",
+            "type": "image/x-icon",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+}
