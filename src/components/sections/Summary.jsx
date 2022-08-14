@@ -62,8 +62,8 @@ const CloudBottom = styled(StCloudTop)`
 `;
 const SummWrap = styled.div`
   background-color: ${colors.summaryBg};
-  margin-top: -50px;
-  margin-bottom: -60px;
+  margin-top: -70px;
+  margin-bottom: -80px;
 `;
 const SummaryList = styled.ul`
   transform: translateZ(0);

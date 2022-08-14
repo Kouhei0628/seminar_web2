@@ -94,6 +94,7 @@ const CloudTop = styled.div`
   height: calc(130px + 10vw);
   @media (min-width: ${breakpoints.m}) {
     display: none;
+    height: 0;
   }
 `;
 const CloudBottom = styled(CloudTop)`
@@ -101,11 +102,13 @@ const CloudBottom = styled(CloudTop)`
   background-position: center bottom;
   display: block;
   @media (min-width: ${breakpoints.m}) {
+    height: 0;
     display: none;
   }
 `;
 const HeaderVisual = styled.div`
   width: 100%;
+  height: 0;
   display: none;
   & > img {
     width: 100%;
