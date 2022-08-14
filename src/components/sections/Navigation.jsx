@@ -39,9 +39,15 @@ export default Navigation;
 const NavigationStyle = styled.nav`
   position: relative;
   width: 100%;
-  margin: 150px auto;
+  margin: 110px auto;
   @media (max-width: ${breakpoints.m}) {
     display: none;
+  }
+  @media (min-width: 750px) {
+    margin: 0 auto;
+  }
+  @media (min-width: ${breakpoints.l}) {
+    margin: 200px auto 0 auto;
   }
 `;
 const NaviList = styled.ul`
