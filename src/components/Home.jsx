@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import FixNavigation from "./FixNavigation";
-import Header from "./Header";
 import Loading from "./Loading";
 import Main from "./Main";
 
@@ -42,8 +41,7 @@ const Home = () => {
     <>
       <Loading isLoaded={isLoaded} />
       <FixNavigation style={fixStyle} variableRef={ref} setRef={setRef} />
-      <Header className='header' />
-      <Main className='main' variableRef={ref} setRef={setRef} />
+      <Main variableRef={ref} setRef={setRef} />
     </>
   );
 };
