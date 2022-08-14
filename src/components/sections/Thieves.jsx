@@ -1,3 +1,4 @@
+import { useInView } from "react-intersection-observer";
 import styled from "styled-components";
 import { breakpoints } from "../../breakpoints/breakpoints";
 import thieves from "../../data/coats";
@@ -5,6 +6,10 @@ import { PubUrl } from "../../data/PubUrl";
 import HeaderOrn from "../ornaments/HeaderOrn";
 
 const Thieves = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
   return (
     <ThievesSection id='thieves'>
       <HeaderOrn logo='thieves' />
@@ -24,12 +29,12 @@ const Thieves = () => {
           怪盗団を運営することでアトミシアへの復讐を目論んだ。
         </p>
       </ThievesDescr>
-
       <ThievesContent>
-        <ThievesList>
+        <ThievesList ref={ref}>
           {thieves.map(thief => (
             <li key={thief.id}>
               <img
+                className={`card ${inView ? "visible" : ""}`}
                 src={`${PubUrl}/img/thieves/thieves_emb${thief.id}.jpg`}
                 alt={thief.alt}
               />
@@ -47,8 +52,10 @@ export default Thieves;
 
 const ThievesSection = styled.section`
   width: 100%;
-  height: auto;
-  margin: 48px auto;
+  height: 100%;
+  margin: -165px auto;
+  /* margin: 0 auto; */
+  transform: translateZ(0);
   @media (min-width: ${breakpoints.m}) {
     width: 74%;
   }
@@ -112,6 +119,11 @@ const ThievesDescr = styled.div`
     p {
       font-size: 8px;
     }
+    @media (min-width: ${breakpoints.l}) {
+      p {
+        font-size: 10px;
+      }
+    }
     height: 130px;
   }
 `;
@@ -144,8 +156,26 @@ const ThievesList = styled.ul`
     @media (min-width: ${breakpoints.m}) {
       width: 20%;
     }
-    img {
+    .card {
       width: 100%;
+      opacity: 0;
+      &.visible {
+        animation: rotate3d 1.1s ease-in-out forwards 0.8s;
+        @keyframes rotate3d {
+          0% {
+            opacity: 0;
+            transform: perspective(1000px) rotateY(-360deg) scale(0.5);
+          }
+          50.1% {
+            opacity: 0.5;
+            transform: perspective(1000px) rotateY(-180deg) scale(0.75);
+          }
+          100% {
+            opacity: 1;
+            transform: perspective(1000px) rotateY(0deg) scale(1);
+          }
+        }
+      }
     }
     @media (min-width: ${breakpoints.l}) {
       margin: 30px 0;
