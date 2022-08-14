@@ -18,7 +18,7 @@ const Home = () => {
     if (!newElm) return;
     const time = window.setTimeout(() => {
       window.scrollTo({
-        top: newElm.offsetTop,
+        top: newElm.offsetTop + 700,
         behavior: "smooth",
         left: 0,
       });
