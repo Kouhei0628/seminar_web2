@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { breakpoints } from "../../breakpoints/breakpoints";
+import { PubUrl } from "../../data/PubUrl";
 import HeaderOrn from "../ornaments/HeaderOrn";
 
 const Location = () => {
@@ -11,24 +12,29 @@ const Location = () => {
       </LocationTextA>
       <LocationMap>
         <img
-          src={`${PUrl}/img/location/loc_1.png`}
+          src={`${PubUrl}/img/location/loc_1.svg`}
           alt='バス乗り場から教室までの道のり'
         />
       </LocationMap>
       <LocationTextA>
         <p>東京造形大学８号館２階「８−２０６」教室</p>
       </LocationTextA>
-      <LocationMap className='oblong'>
-        <img src={`${PUrl}/img/location/loc_2.png`} alt='東京造形大学全体図' />
+      <LocationAdress>
+        <p>〒192-0992 東京都八王子市宇津貫町１５５６</p>
+      </LocationAdress>
+      <LocationMap>
+        <img
+          src={`${PubUrl}/img/location/loc_2.svg`}
+          alt='東京造形大学全体図'
+        />
       </LocationMap>
     </LocationSection>
   );
 };
 export default Location;
 
-const PUrl = process.env.PUBLIC_URL;
-
 const LocationSection = styled.section`
+  transform: translateZ(0);
   margin: 40px auto;
   width: 100%;
   text-align: center;
@@ -38,7 +44,7 @@ const LocationSection = styled.section`
   }
 `;
 const LocationTextA = styled.div`
-  background-image: url(${PUrl}/img/location/loc_txtbg.svg);
+  background-image: url(${PubUrl}/img/location/loc_txtbg.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -56,15 +62,30 @@ const LocationTextA = styled.div`
     font-size: 12px;
   }
 `;
-const LocationMap = styled.div`
-  margin: 0 auto;
-  width: 100%;
-  img {
-    margin: 0 auto;
-    width: 100%;
-    transform: scale(1.2);
+const LocationAdress = styled.div`
+  width: 82%;
+  height: 50px;
+  margin: 10px auto 0 auto;
+  background-image: url(${PubUrl}/img/location/loc_txtbg2-2.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: ${breakpoints.m}) {
+    background-image: url(${PubUrl}/img/location/loc_txtbg2.svg);
   }
-  &.oblong img {
-    transform: scale(1);
+  p {
+    font-size: 12px;
+  }
+`;
+const LocationMap = styled.div`
+  margin-top: 25px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
+  img {
+    width: 100%;
   }
 `;

@@ -18,19 +18,19 @@ export default HeaderOrn;
 const HeaderWrap = styled.div`
   position: relative;
   margin: 0 auto;
-  width: 151px;
+  width: 171px;
 `;
 
 const HeaderImgA = styled.div`
-  background-image: url(${process.env.PUBLIC_URL}/img/common_ribbon.png);
+  background-image: url(${PubUrl}/img/common_ribbon.png);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 60px;
+  height: 68px;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 const HeaderImgB = styled.img`
-  height: 30%;
-  transform: translateY(-3px);
+  height: 35%;
+  transform: translateY(-2px);
 `;

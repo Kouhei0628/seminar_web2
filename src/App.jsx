@@ -1,20 +1,6 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Main from "./components/Main";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import FixNavigation from "./components/FixNavigation";
-
-const Home = () => {
-  return (
-    <>
-      <FixNavigation />
-      <Header className='header' />
-      <Main className='main' />
-      <Footer />
-    </>
-  );
-};
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -34,7 +20,9 @@ function App() {
                   />
                 </div>
                 <div>
-                  <h3 style={{ textAlign: "center" }}>404 Page Not Found</h3>
+                  <h3 style={{ textAlign: "center", color: "white" }}>
+                    404 Page Not Found
+                  </h3>
                 </div>
               </div>
             }

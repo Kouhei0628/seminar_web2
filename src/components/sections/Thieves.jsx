@@ -16,8 +16,7 @@ const Thieves = () => {
           フェルミアはアトミシアとの侵略戦争に敗北した。
           <br />
           <br />
-          才能をもった科学者たちはアトミシアの貴族に囚われ、貴族の元で新しい発明に
-          貢献することを余儀なくされてしまった。
+          才能をもった科学者たちはアトミシアの貴族に囚われ、貴族の元で新しい発明に貢献することを余儀なくされてしまった。
           <br />
           <br />
           アトミシア貴族に恨みをもつフェルミアの一族は組織「アウロラ」を形成し
@@ -60,10 +59,10 @@ const Subtitle = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   margin: 20px auto;
-  height: 20px;
+  height: 24px;
   position: relative;
   h3 {
-    font-size: 10px;
+    font-size: 15px;
     margin: 0;
     color: white;
     position: absolute;
@@ -77,28 +76,59 @@ const ThievesDescr = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  height: 100vw;
-  max-height: 250px;
+  height: 250px;
   width: 90%;
   margin: 0 auto;
-  padding: 0 13px;
+  padding: 8px 13px;
   display: flex;
   justify-content: center;
   align-items: center;
   p {
     margin: 0;
-    color: white;
-    font-size: 7px;
+    color: #ffeecf;
+    font-size: 12px;
+    width: 80%;
+  }
+  @media (min-width: 383px) {
+    height: 280px;
+    p {
+      font-size: 13px;
+    }
+  }
+  @media (min-width: 410px) {
+    background-image: url(${PubUrl}/img/thieves/thieves_descbg-m.svg);
+    height: 180px;
+    p {
+      font-size: 11px;
+      width: 75%;
+    }
+  }
+  @media (min-width: 620px) {
+    height: 220px;
+    height: 100px;
+    background-image: url(${PubUrl}/img/thieves/thieves_descbg-l.svg);
+  }
+  @media (min-width: 620px) {
+    p {
+      font-size: 8px;
+    }
+    height: 130px;
   }
 `;
 const ThievesContent = styled.div`
-  background-image: url(${PubUrl}/img/thieves/thieves_listbg.svg);
+  background-image: url(${PubUrl}/img/thieves/thieves_listbg-m.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   margin: 27px auto;
   padding: 5px 0px;
   width: 86%;
+  @media (min-width: ${breakpoints.m}) {
+    background-image: url(${PubUrl}/img/thieves/thieves_listbg-l.svg);
+  }
+  @media (min-width: ${breakpoints.l}) {
+    background-image: url(${PubUrl}/img/thieves/thieves_listbg-xl.svg);
+  }
 `;
 const ThievesList = styled.ul`
   padding: 0;
@@ -116,6 +146,9 @@ const ThievesList = styled.ul`
     }
     img {
       width: 100%;
+    }
+    @media (min-width: ${breakpoints.l}) {
+      margin: 30px 0;
     }
   }
 `;
