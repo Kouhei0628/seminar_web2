@@ -32,21 +32,21 @@ const Main = ({ myRef, setRef }) => {
     },
   };
   useEffect(() => {
-    // gsap.registerPlugin(ScrollTrigger);
-    // const tlA = gsap.timeline(option);
-    // tlA.fromTo(
-    //   ".ornInnL",
-    //   { transform: "translateX(-100%)" },
-    //   { transform: "translateX(0%)" }
-    // );
-    // const tlB = gsap.timeline(option);
-    // tlB.fromTo(
-    //   ".ornInnR",
-    //   { transform: "translateX(100%)" },
-    //   { transform: "translateX(0%)" }
-    // );
+    gsap.registerPlugin(ScrollTrigger);
+    const tlA = gsap.timeline(option);
+    tlA.fromTo(
+      ".ornInnL",
+      { transform: "translateX(-100%)" },
+      { transform: "translateX(0%)" }
+    );
+    const tlB = gsap.timeline(option);
+    tlB.fromTo(
+      ".ornInnR",
+      { transform: "translateX(100%)" },
+      { transform: "translateX(0%)" }
+    );
   });
-
+  const gearAmount = [...Array(50)];
   return (
     <main style={mainStyle} className='main'>
       <Header />
@@ -60,13 +60,20 @@ const Main = ({ myRef, setRef }) => {
             <OrnMargin />
             <OrnamentWrap className='ornWrapL'>
               <OrnamentInner className='ornInnL'>
-                <Gears />
+                {gearAmount.map((_, i) => (
+                  <Gears key={i} isLeft />
+                ))}
               </OrnamentInner>
             </OrnamentWrap>
           </OrnamentsL>
           <OrnamentsR className='ornaments-r'>
+            <OrnMargin />
             <OrnamentWrap className='ornWrapR'>
-              <OrnamentInner className='ornInnR'></OrnamentInner>
+              <OrnamentInner className='ornInnR'>
+                {gearAmount.map((_, i) => (
+                  <Gears key={i} />
+                ))}
+              </OrnamentInner>
             </OrnamentWrap>
           </OrnamentsR>
           <Story />
@@ -88,16 +95,26 @@ const OrnamentsL = styled.div`
   z-index: 0;
   top: 0;
   left: 0%;
-  width: 95px;
+  width: 120px;
   height: 100%;
+  overflow: hidden;
   @media (min-width: ${breakpoints.m}) {
     width: 100px;
   }
 `;
+const OrnamentsR = styled(OrnamentsL)`
+  left: unset;
+  right: 0;
+`;
 const OrnMargin = styled.div`
   width: 100%;
-  height: 1700px;
-  background-color: pink;
+  height: 800px;
+  @media (min-width: 500px) {
+    height: 1600px;
+  }
+  @media (min-width: ${breakpoints.l}) {
+    height: 1900px;
+  }
 `;
 const OrnamentWrap = styled.div`
   width: 100%;
@@ -108,17 +125,9 @@ const OrnamentWrap = styled.div`
 const OrnamentInner = styled.div`
   width: 100%;
   height: 100%;
-  background-color: aliceblue;
   position: absolute;
 `;
-const OrnamentsR = styled.div`
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  right: 0%;
-  width: 95px;
-  height: 100%;
-`;
+
 const UnderNavi = styled.div`
   width: 100%;
   height: 100%;
@@ -134,4 +143,5 @@ const mainStyle = {
 const MainWrap = styled.div`
   width: 100%;
   height: 100%;
+  overflow: hidden;
 `;
