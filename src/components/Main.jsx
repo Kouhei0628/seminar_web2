@@ -43,10 +43,10 @@ const Main = ({ myRef, setRef }) => {
     tlB.fromTo(
       ".ornInnR",
       { transform: "translateX(100%)" },
-      { transform: "translateX(0%)" }
+      { transform: "translateX(30%)" }
     );
   });
-  const gearAmount = [...Array(50)];
+  const gearAmount = [...Array(150)];
   return (
     <main style={mainStyle} className='main'>
       <Header />
@@ -61,7 +61,7 @@ const Main = ({ myRef, setRef }) => {
             <OrnamentWrap className='ornWrapL'>
               <OrnamentInner className='ornInnL'>
                 {gearAmount.map((_, i) => (
-                  <Gears key={i} isLeft />
+                  <Gears key={i} id={i} isLeft />
                 ))}
               </OrnamentInner>
             </OrnamentWrap>
@@ -95,11 +95,11 @@ const OrnamentsL = styled.div`
   z-index: 0;
   top: 0;
   left: 0%;
-  width: 120px;
+  width: 150px;
   height: 100%;
   overflow: hidden;
   @media (min-width: ${breakpoints.m}) {
-    width: 100px;
+    width: 150px;
   }
 `;
 const OrnamentsR = styled(OrnamentsL)`

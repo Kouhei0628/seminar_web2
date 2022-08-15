@@ -7,10 +7,10 @@ import { CloudTop, CloudWrap } from "./Summary";
 
 const Members = () => {
   return (
-    <MembersSection id='members'>
+    <MembersSection>
       <CWrap>
         <CTop />
-        <MembersWrap>
+        <MembersWrap id='members'>
           <HeaderOrn logo='members' />
           <MembersContent />
         </MembersWrap>
@@ -30,7 +30,7 @@ const CTop = styled(CloudTop)`
   background-image: url(${PubUrl}/img/members/members_bg-top.png);
 `;
 const MembersWrap = styled.div`
-  margin-top: -150px;
+  margin-top: -80px;
   width: 100%;
   background-color: ${colors.membersBg};
   padding-bottom: 140px;
