@@ -13,7 +13,7 @@ const Gears = ({ id, isLeft }) => {
   // 種類
   const type = random(1, 18);
   // 回転速度
-  const speed = random(45, 60);
+  const speed = random(55, 78);
   // 回転方向
   const direction = random(1, 2).toString();
   return (
@@ -45,9 +45,9 @@ const GearWrap = styled.div.attrs(props => ({
 const GearObj = styled.div.attrs(props => ({
   style: {
     animation: `gearRotate ${props.speed}s linear infinite`,
+    backgroundImage: `url(${PubUrl}/img/gears/gear_${props.type}.svg)`,
   },
 }))`
-  background-image: url(${PubUrl}/img/gears/gear_${prop => prop.type}.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
