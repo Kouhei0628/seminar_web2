@@ -93,8 +93,8 @@ const ThievesDescr = styled.div`
   p {
     margin: 0;
     color: #ffeecf;
-    font-size: 12px;
-    width: 80%;
+    font-size: 13px;
+    width: 95%;
   }
   @media (min-width: 383px) {
     height: 280px;

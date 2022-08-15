@@ -9,11 +9,11 @@ const Gears = ({ id, isLeft }) => {
   const positionX = random(10, 80);
   const positionY = random(10, 50);
   // 大きさ
-  const size = random(40, 150);
+  const size = random(40, 250);
   // 種類
   const type = random(1, 18);
   // 回転速度
-  const speed = random(35, 60);
+  const speed = random(45, 60);
   // 回転方向
   const direction = random(1, 2).toString();
   return (

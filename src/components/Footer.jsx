@@ -7,20 +7,22 @@ const Footer = () => {
   const twitterLink = "https://twitter.com/kaishizemi2022";
   return (
     <FooterWrap className='footer'>
-      <FooterWhiteSpace>
-        <a href={twitterLink} target='_blank' rel='noreferrer'>
-          <div>
-            <img
-              src={`${PubUrl}/img/footer/foot_twitter.svg`}
-              alt={`Twitterロゴ`}
-            />
-            <span>@kaishizemi2022</span>
-          </div>
-        </a>
-      </FooterWhiteSpace>
-      <FooterSl>
-        <div></div>
-      </FooterSl>
+      <FooterInner>
+        <FooterWhiteSpace>
+          <a href={twitterLink} target='_blank' rel='noreferrer'>
+            <div>
+              <img
+                src={`${PubUrl}/img/footer/foot_twitter.svg`}
+                alt={`Twitterロゴ`}
+              />
+              <span>@kaishizemi2022</span>
+            </div>
+          </a>
+        </FooterWhiteSpace>
+        <FooterSl>
+          <div></div>
+        </FooterSl>
+      </FooterInner>
     </FooterWrap>
   );
 };
@@ -30,8 +32,15 @@ const FooterWrap = styled.div`
   width: 100%;
   height: calc(220px + 8vw);
   overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+`;
+const FooterInner = styled.div`
+  width: 100%;
+  height: 100%;
   position: relative;
-  background-color: ${colors.membersBg};
+  /* background-color: ${colors.membersBg}; */
 `;
 const FooterWhiteSpace = styled.div`
   background-image: url(${PubUrl}/img/footer/foot_smoke.png);
@@ -43,7 +52,7 @@ const FooterWhiteSpace = styled.div`
   display: none;
   top: 0;
   left: 50%;
-  z-index: 10;
+  z-index: 1;
   a {
     margin: 0 auto;
     display: block;

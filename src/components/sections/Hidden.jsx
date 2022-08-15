@@ -29,6 +29,7 @@ const HiddenSection = styled.div`
 const HeaderDescWrap = styled.div`
   margin: 0 auto;
   margin-top: 70px;
+  margin-bottom: 380px;
   transform: translateZ(0);
   background-image: url(${PubUrl}/img/hidden/hidden_descbg_s.svg);
   @media (min-width: ${breakpoints.m}) {
