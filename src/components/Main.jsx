@@ -32,19 +32,19 @@ const Main = ({ myRef, setRef }) => {
     },
   };
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const tlA = gsap.timeline(option);
-    tlA.fromTo(
-      ".ornInnL",
-      { transform: "translateX(-100%)" },
-      { transform: "translateX(0%)" }
-    );
-    const tlB = gsap.timeline(option);
-    tlB.fromTo(
-      ".ornInnR",
-      { transform: "translateX(100%)" },
-      { transform: "translateX(0%)" }
-    );
+    // gsap.registerPlugin(ScrollTrigger);
+    // const tlA = gsap.timeline(option);
+    // tlA.fromTo(
+    //   ".ornInnL",
+    //   { transform: "translateX(-100%)" },
+    //   { transform: "translateX(0%)" }
+    // );
+    // const tlB = gsap.timeline(option);
+    // tlB.fromTo(
+    //   ".ornInnR",
+    //   { transform: "translateX(100%)" },
+    //   { transform: "translateX(0%)" }
+    // );
   });
 
   return (
@@ -57,14 +57,12 @@ const Main = ({ myRef, setRef }) => {
         <Navigation id='navigation' myRef={myRef} setRef={setRef} />
         <UnderNavi className='under-navi'>
           <OrnamentsL className='ornaments-l'>
+            <OrnMargin />
             <OrnamentWrap className='ornWrapL'>
-              <OrnamentInner className='ornInnL'></OrnamentInner>
+              <OrnamentInner className='ornInnL'>
+                <Gears />
+              </OrnamentInner>
             </OrnamentWrap>
-            {/* <Gears key={`1`} position={`left`} />
-        <Gears key={`4`} position='right' />
-        <Gears key={`3`} position='left' />
-        <Gears key={`5`} position='right' />
-        <Gears key={`6`} position='left' /> */}
           </OrnamentsL>
           <OrnamentsR className='ornaments-r'>
             <OrnamentWrap className='ornWrapR'>
@@ -95,6 +93,11 @@ const OrnamentsL = styled.div`
   @media (min-width: ${breakpoints.m}) {
     width: 100px;
   }
+`;
+const OrnMargin = styled.div`
+  width: 100%;
+  height: 1700px;
+  background-color: pink;
 `;
 const OrnamentWrap = styled.div`
   width: 100%;
