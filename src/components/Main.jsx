@@ -26,8 +26,8 @@ const Main = ({ myRef, setRef }) => {
   const option = {
     scrollTrigger: {
       trigger: ".under-navi",
-      start: "top+=5% 50%",
-      end: "1100 80%",
+      start: "top bottom",
+      end: "1500 bottom",
       scrub: true,
     },
   };
@@ -57,7 +57,6 @@ const Main = ({ myRef, setRef }) => {
         <Navigation id='navigation' myRef={myRef} setRef={setRef} />
         <UnderNavi className='under-navi'>
           <OrnamentsL className='ornaments-l'>
-            <OrnMargin />
             <OrnamentWrap className='ornWrapL'>
               <OrnamentInner className='ornInnL'>
                 {gearAmount.map((_, i) => (
@@ -67,7 +66,6 @@ const Main = ({ myRef, setRef }) => {
             </OrnamentWrap>
           </OrnamentsL>
           <OrnamentsR className='ornaments-r'>
-            <OrnMargin />
             <OrnamentWrap className='ornWrapR'>
               <OrnamentInner className='ornInnR'>
                 {gearAmount.map((_, i) => (
@@ -95,12 +93,9 @@ const OrnamentsL = styled.div`
   z-index: 0;
   top: 0;
   left: 0%;
-  width: 150px;
+  width: 250px;
   height: 100%;
   overflow: hidden;
-  @media (min-width: ${breakpoints.m}) {
-    width: 150px;
-  }
 `;
 const OrnamentsR = styled(OrnamentsL)`
   left: unset;

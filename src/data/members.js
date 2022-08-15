@@ -16,7 +16,7 @@ const members = [{
     },
     {
         id: 5,
-        name: "市川清楓",
+        name: "清楓",
     },
     {
         id: 6,
