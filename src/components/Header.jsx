@@ -18,6 +18,22 @@ const Header = () => {
         <CloudWrap>
           <CloudTop />
           <HeaderCloud>
+            <picture>
+              {/* WebP対応ブラウザ用  */}
+              <source
+                className='webp'
+                type='image/webp'
+                srcSet={`${PubUrl}/img/story/story_bganime.webp`}
+              />
+              {/* WebP非対応ブラウザ用  */}
+              <img
+                src={`${PubUrl}/img/story/story_bganime.png`}
+                width='1920'
+                height='1080'
+                alt='雲の流れる動画'
+                className='png'
+              />
+            </picture>
             <LogoAndCopy />
           </HeaderCloud>
           <CloudBottom />
@@ -72,7 +88,14 @@ const HeaderCloud = styled.div`
     margin-bottom: 0;
   }
   position: relative;
-  border-bottom: 20px solid ${colors.storyBg};
+  .webp {
+    width: 100%;
+    height: 100%;
+  }
+  .png {
+    width: 100%;
+    height: 100%;
+  }
 `;
 const CloudWrap = styled.div`
   width: 100%;

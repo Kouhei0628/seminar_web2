@@ -8,28 +8,30 @@ const Navigation = ({ setRef }) => {
   return (
     <>
       <NavigationStyle>
-        <NaviList>
-          {navImages.map(navImg => (
-            <li key={navImg.id}>
-              <button
-                onClick={() => setRef(navImg.ref)}
-                style={{ width: "100%", height: "100%" }}>
-                <NavIcon
-                  className='nav-icon'
-                  src={`${PubUrl}/img/navigation/nav_${navImg.ref}.png`}
-                  alt={navImg.alt}
-                />
-                <Link to={`/#${navImg.ref}`}>
-                  <NavLogo
-                    className='nav-logo'
-                    src={`${PubUrl}/img/logos/logo_${navImg.ref}-fff.svg`}
+        <NavListWrap>
+          <NaviList>
+            {navImages.map(navImg => (
+              <li key={navImg.id}>
+                <button
+                  onClick={() => setRef(navImg.ref)}
+                  style={{ width: "100%", height: "100%" }}>
+                  <NavIcon
+                    className='nav-icon'
+                    src={`${PubUrl}/img/navigation/nav_${navImg.ref}.png`}
                     alt={navImg.alt}
                   />
-                </Link>
-              </button>
-            </li>
-          ))}
-        </NaviList>
+                  <Link to={`/#${navImg.ref}`}>
+                    <NavLogo
+                      className='nav-logo'
+                      src={`${PubUrl}/img/logos/logo_${navImg.ref}-fff.svg`}
+                      alt={navImg.alt}
+                    />
+                  </Link>
+                </button>
+              </li>
+            ))}
+          </NaviList>
+        </NavListWrap>
       </NavigationStyle>
     </>
   );
@@ -39,6 +41,7 @@ export default Navigation;
 const NavigationStyle = styled.nav`
   position: relative;
   width: 100%;
+  height: 300px;
   margin: 110px auto;
   @media (max-width: ${breakpoints.m}) {
     display: none;
@@ -50,7 +53,18 @@ const NavigationStyle = styled.nav`
     margin: 200px auto 0 auto;
   }
 `;
+const NavListWrap = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+`;
 const NaviList = styled.ul`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
   margin: 80px auto;
   width: 80%;
   padding: 0;
