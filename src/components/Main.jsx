@@ -15,6 +15,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import Footer from "./Footer";
 import { colors } from "../data/colors";
 import { breakpoints } from "../breakpoints/breakpoints";
+import Header from "./Header";
 
 export const ModalContext = createContext();
 
@@ -24,57 +25,58 @@ const Main = ({ myRef, setRef }) => {
 
   const option = {
     scrollTrigger: {
-      trigger: ".main",
+      trigger: ".under-navi",
       start: "top+=5% 50%",
       end: "1100 80%",
       scrub: true,
     },
   };
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const tlA = gsap.timeline(option);
-    tlA.fromTo(
-      ".ornInnL",
-      { transform: "translateX(-100%)" },
-      { transform: "translateX(0%)" }
-    );
-    const tlB = gsap.timeline(option);
-    tlB.fromTo(
-      ".ornInnR",
-      { transform: "translateX(100%)" },
-      { transform: "translateX(0%)" }
-    );
+    // gsap.registerPlugin(ScrollTrigger);
+    // const tlA = gsap.timeline(option);
+    // tlA.fromTo(
+    //   ".ornInnL",
+    //   { transform: "translateX(-100%)" },
+    //   { transform: "translateX(0%)" }
+    // );
+    // const tlB = gsap.timeline(option);
+    // tlB.fromTo(
+    //   ".ornInnR",
+    //   { transform: "translateX(100%)" },
+    //   { transform: "translateX(0%)" }
+    // );
   });
 
   return (
     <main style={mainStyle} className='main'>
-      <OrnamentsL className='ornaments-l'>
-        <OrnamentWrap className='ornWrapL'>
-          <OrnamentInner className='ornInnL'></OrnamentInner>
-        </OrnamentWrap>
-        {/* <Gears key={`1`} position={`left`} />
-        <Gears key={`4`} position='right' />
-        <Gears key={`3`} position='left' />
-        <Gears key={`5`} position='right' />
-        <Gears key={`6`} position='left' /> */}
-      </OrnamentsL>
-      <OrnamentsR className='ornaments-r'>
-        <OrnamentWrap className='ornWrapR'>
-          <OrnamentInner className='ornInnR'></OrnamentInner>
-        </OrnamentWrap>
-      </OrnamentsR>
+      <Header />
       <ModalContext.Provider value={{ toggleModal }}>
         {modal && <Modal />}
       </ModalContext.Provider>
       <MainWrap className='main__wrap'>
         <Navigation id='navigation' myRef={myRef} setRef={setRef} />
-        <Story />
-        <Thieves />
-        <Summary />
-        <Location />
-        <Members />
-        <Hidden />
-        <Footer />
+        <UnderNavi className='under-navi'>
+          <OrnamentsL className='ornaments-l'>
+            <OrnMargin />
+            <OrnamentWrap className='ornWrapL'>
+              <OrnamentInner className='ornInnL'>
+                <Gears />
+              </OrnamentInner>
+            </OrnamentWrap>
+          </OrnamentsL>
+          <OrnamentsR className='ornaments-r'>
+            <OrnamentWrap className='ornWrapR'>
+              <OrnamentInner className='ornInnR'></OrnamentInner>
+            </OrnamentWrap>
+          </OrnamentsR>
+          <Story />
+          <Thieves />
+          <Summary />
+          <Location />
+          <Members />
+          <Hidden />
+          <Footer />
+        </UnderNavi>
       </MainWrap>
     </main>
   );
@@ -91,6 +93,11 @@ const OrnamentsL = styled.div`
   @media (min-width: ${breakpoints.m}) {
     width: 100px;
   }
+`;
+const OrnMargin = styled.div`
+  width: 100%;
+  height: 1700px;
+  background-color: pink;
 `;
 const OrnamentWrap = styled.div`
   width: 100%;
@@ -112,7 +119,11 @@ const OrnamentsR = styled.div`
   width: 95px;
   height: 100%;
 `;
-
+const UnderNavi = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+`;
 const mainStyle = {
   textAlign: "center",
   position: "relative",
