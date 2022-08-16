@@ -95,6 +95,7 @@ const CloudTop = styled.div`
   background-position: center top;
   width: 100%;
   height: calc(130px + 10vw);
+  filter: brightness(95.5%);
   @media (min-width: ${breakpoints.m}) {
     display: none;
     height: 0;
@@ -104,6 +105,7 @@ const CloudBottom = styled(CloudTop)`
   background-image: url(${PubUrl}/img/story/story_bg-bottom.png);
   background-position: center bottom;
   display: block;
+  filter: brightness(49%);
   @media (min-width: ${breakpoints.m}) {
     height: 0;
     display: none;

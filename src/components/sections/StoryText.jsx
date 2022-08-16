@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../../breakpoints/breakpoints";
 import StoryEachText from "./StoryEachText";
 
 const StoryText = () => {
@@ -62,7 +63,57 @@ const StoryText = () => {
 };
 export default StoryText;
 
+const fontSizes = {
+  s: "font-size: 9px;",
+  m: "font-size: 10px;",
+  l: "font-size: 13px;",
+  xl: "font-size: 16px;",
+};
+
 const TextWrap = styled.p`
   width: 100%;
   height: 100%;
+  display: inline-block;
+  font-size: 6px;
+  font-weight: 700;
+  span {
+    visibility: hidden;
+    &.inview {
+      animation: textIn2 1s ease-in forwards 0.4s;
+    }
+  }
+  @keyframes textIn2 {
+    0% {
+      visibility: hidden;
+      clip-path: inset(0 0 100% 0);
+    }
+    100% {
+      visibility: visible;
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  @media (min-width: 300px) {
+    ${fontSizes.s}
+  }
+  @media (min-width: 366px) {
+    ${fontSizes.m}
+  }
+  @media (min-width: 425px) {
+    ${fontSizes.l}
+  }
+  @media (min-width: 516px) {
+    ${fontSizes.xl}
+  }
+  @media (min-width: ${breakpoints.m}) {
+    ${fontSizes.s}
+  }
+  @media (min-width: 738px) {
+    ${fontSizes.m}
+  }
+  @media (min-width: ${breakpoints.l}) {
+    ${fontSizes.l}
+  }
+  @media (min-width: 1190px) {
+    ${fontSizes.xl}
+  }
 `;

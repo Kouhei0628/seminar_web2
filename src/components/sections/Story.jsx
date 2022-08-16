@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { breakpoints } from "../../breakpoints/breakpoints";
 import { colors } from "../../data/colors";
 import { PubUrl } from "../../data/PubUrl";
 import HeaderOrn from "../ornaments/HeaderOrn";
@@ -22,13 +21,6 @@ const Story = () => {
   );
 };
 export default Story;
-
-const fontSizes = {
-  s: "font-size: 9px;",
-  m: "font-size: 10px;",
-  l: "font-size: 13px;",
-  xl: "font-size: 16px;",
-};
 
 const StorySection = styled.section`
   margin: 56px auto;
@@ -73,34 +65,5 @@ const StoryContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: width 0.3s ease-in-out;
   transform: rotateZ(0deg);
-  p {
-    font-size: 6px;
-    font-weight: 700;
-    @media (min-width: 300px) {
-      ${fontSizes.s}
-    }
-    @media (min-width: 366px) {
-      ${fontSizes.m}
-    }
-    @media (min-width: 425px) {
-      ${fontSizes.l}
-    }
-    @media (min-width: 516px) {
-      ${fontSizes.xl}
-    }
-    @media (min-width: ${breakpoints.m}) {
-      ${fontSizes.s}
-    }
-    @media (min-width: 738px) {
-      ${fontSizes.m}
-    }
-    @media (min-width: ${breakpoints.l}) {
-      ${fontSizes.l}
-    }
-    @media (min-width: 1190px) {
-      ${fontSizes.xl}
-    }
-  }
 `;
