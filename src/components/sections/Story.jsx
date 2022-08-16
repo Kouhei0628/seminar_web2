@@ -3,61 +3,17 @@ import { breakpoints } from "../../breakpoints/breakpoints";
 import { colors } from "../../data/colors";
 import { PubUrl } from "../../data/PubUrl";
 import HeaderOrn from "../ornaments/HeaderOrn";
+import StoryText from "./StoryText";
 
 const Story = () => {
   return (
     <StorySection>
       <CloudWrapper>
-        <StCloudTop>
-          {/* <img src={`${PubUrl}/img/story/story_bg-both.gif`} alt='' /> */}
-        </StCloudTop>
+        <StCloudTop />
         <StoryWrap id='story'>
           <HeaderOrn logo='story' />
           <StoryContent>
-            <p>
-              私はヴェルスラミナに通う生徒。
-              <br />
-              <br />
-              ヴェルスラミナとは
-              <br />
-              アトミシアに復讐を目論む
-              <br />
-              組織アウロラが運営している
-              <br />
-              怪盗を育成するための施設。
-              <br />
-              <br />
-              実力が認められ、アウロラから
-              <br />
-              届く入団試験に合格すると
-              <br />
-              怪盗団に所属し
-              <br />
-              怪盗として暗躍することとなる。
-              <br />
-              <br />
-              ある日私が授業を終え
-              <br />
-              ヴェルスラミナの寄宿舎に帰ると
-              <br />
-              一通の封筒が届いていた。
-              <br />
-              <br />
-              中を見てみるとゼニス号の乗車券と
-              <br />
-              一枚の書類が入っており
-              <br />
-              書類には入団試験の内容が書かれていた。
-              <br />
-              <br />
-              入団試験の内容はゼニス号に乗り込み
-              <br />
-              アトミシアの貴族から
-              <br />
-              政府の情報または
-              <br />
-              財産を盗むことだった。
-            </p>
+            <StoryText />
           </StoryContent>
         </StoryWrap>
         <StCloudBottom />

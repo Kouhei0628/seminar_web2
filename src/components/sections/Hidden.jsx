@@ -23,7 +23,7 @@ export default Hidden;
 const HiddenSection = styled.div`
   margin: 0 auto;
   padding-bottom: 80px;
-  width: 100vw;
+  width: 100%;
   background-color: ${colors.membersBg};
 `;
 const HeaderDescWrap = styled.div`
