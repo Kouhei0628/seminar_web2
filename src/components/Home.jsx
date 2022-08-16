@@ -1,7 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 import FixNavigation from "./FixNavigation";
 import Loading from "./Loading";
 import Main from "./Main";
+
+export const RefContext = createContext(null);
+export const SetRefContext = createContext(null);
 
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -38,11 +41,13 @@ const Home = () => {
     };
   }, [isLoaded]);
   return (
-    <>
-      <Loading isLoaded={isLoaded} />
-      <FixNavigation style={fixStyle} variableRef={ref} setRef={setRef} />
-      <Main variableRef={ref} setRef={setRef} />
-    </>
+    <RefContext.Provider value={newRef}>
+      <SetRefContext.Provider value={setRef}>
+        <Loading isLoaded={isLoaded} />
+        <FixNavigation style={fixStyle} />
+        <Main />
+      </SetRefContext.Provider>
+    </RefContext.Provider>
   );
 };
 export default Home;

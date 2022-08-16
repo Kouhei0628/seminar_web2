@@ -1,10 +1,12 @@
+import React from "react";
 import styled from "styled-components";
 import { breakpoints } from "../breakpoints/breakpoints";
 import { colors } from "../data/colors";
 import { PubUrl } from "../data/PubUrl";
+import CloudPicture from "./CloudPicture";
 import LogoAndCopy from "./LogoAndCopy";
 
-const Header = () => {
+const Header = React.memo(() => {
   return (
     <header className='header'>
       <HeaderWrap>
@@ -18,22 +20,7 @@ const Header = () => {
         <CloudWrap>
           <CloudTop />
           <HeaderCloud>
-            <picture>
-              {/* WebP対応ブラウザ用  */}
-              <source
-                className='webp'
-                type='image/webp'
-                srcSet={`${PubUrl}/img/story/story_bganime.webp`}
-              />
-              {/* WebP非対応ブラウザ用  */}
-              <img
-                src={`${PubUrl}/img/story/story_bganime.png`}
-                width='1920'
-                height='1080'
-                alt='雲の流れる動画'
-                className='png'
-              />
-            </picture>
+            <CloudPicture />
             <LogoAndCopy />
           </HeaderCloud>
           <CloudBottom />
@@ -53,7 +40,7 @@ const Header = () => {
       </HeaderWrap>
     </header>
   );
-};
+});
 export default Header;
 
 const HeaderWrap = styled.div`
@@ -81,21 +68,14 @@ const TopmostCloud = styled.div`
 const HeaderCloud = styled.div`
   background-color: ${colors.storyBg};
   width: 100%;
-  height: calc(350px + 5vw);
-  margin-bottom: -60px;
+  height: calc(550px + 15vw);
+  margin-top: -40px;
+  margin-bottom: -20px;
   @media (min-width: ${breakpoints.m}) {
-    height: calc(410px + 15vw);
+    height: calc(450px + 15vw);
     margin-bottom: 0;
   }
   position: relative;
-  .webp {
-    width: 100%;
-    height: 100%;
-  }
-  .png {
-    width: 100%;
-    height: 100%;
-  }
 `;
 const CloudWrap = styled.div`
   width: 100%;

@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { createContext, useEffect, useState } from "react";
-import Modal from "./Modal";
+import { createContext, useEffect } from "react";
 import Story from "./sections/Story";
 import Thieves from "./sections/Thieves";
 import Summary from "./sections/Summary";
@@ -13,13 +12,11 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import Footer from "./Footer";
 import Header from "./Header";
 import Ornaments from "./ornaments/Ornaments";
+import React from "react";
 
 export const ModalContext = createContext();
 
-const Main = ({ myRef, setRef }) => {
-  const [modal, setModal] = useState(false);
-  const toggleModal = () => setModal(p => !p);
-
+const Main = React.memo(() => {
   const option = {
     scrollTrigger: {
       trigger: ".under-navi",
@@ -46,11 +43,8 @@ const Main = ({ myRef, setRef }) => {
   return (
     <main style={mainStyle} className='main'>
       <Header />
-      <ModalContext.Provider value={{ toggleModal }}>
-        {modal && <Modal />}
-      </ModalContext.Provider>
       <MainWrap className='main__wrap'>
-        <Navigation id='navigation' myRef={myRef} setRef={setRef} />
+        <Navigation id='navigation' />
         <UnderNavi className='under-navi'>
           <Ornaments />
           <Story />
@@ -64,7 +58,7 @@ const Main = ({ myRef, setRef }) => {
       </MainWrap>
     </main>
   );
-};
+});
 export default Main;
 
 const UnderNavi = styled.div`

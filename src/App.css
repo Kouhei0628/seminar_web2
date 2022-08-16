@@ -30,24 +30,24 @@ button {
 }
 
 .header {
-    height: 210vw;
+    height: calc(290vw - 10vw);
 }
 
 @media (min-width: 360px) {
     .header {
-        height: 200vw;
+        height: calc( 295vw - 10vw);
     }
 }
 
 @media (min-width: 480px) {
     .header {
-        height: 160vw;
+        height: 240vw;
     }
 }
 
 @media (min-width: 580px) {
     .header {
-        height: 150vw;
+        height: 190vw;
     }
 }
 
