@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -5,19 +6,21 @@ import { breakpoints } from "../../breakpoints/breakpoints";
 import { colors } from "../../data/colors";
 import navImages from "../../data/mainNav-img";
 import { PubUrl } from "../../data/PubUrl";
+import { RefContext, SetRefContext } from "../Home";
 
-const FixNavListItem = ({ itemRef, variableRef, alt, setRef }) => {
+const FixNavListItem = ({ itemRef, alt }) => {
   const [isSelected, setIsSelected] = useState(false);
-
+  const vRef = useContext(RefContext);
+  const setRef = useContext(SetRefContext);
   const oCScroll = _ref => setRef(_ref);
 
   useEffect(() => {
-    if (itemRef === variableRef) {
+    if (itemRef === vRef) {
       setIsSelected(true);
     } else {
       setIsSelected(false);
     }
-  }, [itemRef, variableRef]);
+  }, [itemRef, vRef]);
   return (
     <FixNavListItemS className={`${isSelected ? "visible" : ""}`}>
       <Link onClick={() => oCScroll(itemRef)} to={`/#${itemRef}`}>

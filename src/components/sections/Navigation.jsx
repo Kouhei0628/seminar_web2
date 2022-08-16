@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { breakpoints } from "../../breakpoints/breakpoints";
 import navImages from "../../data/mainNav-img";
 import { PubUrl } from "../../data/PubUrl";
+import { SetRefContext } from "../Home";
 
-const Navigation = ({ setRef }) => {
+const Navigation = () => {
+  const setRef = useContext(SetRefContext);
   return (
     <>
       <NavigationStyle>

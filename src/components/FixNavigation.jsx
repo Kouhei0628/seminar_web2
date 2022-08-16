@@ -8,7 +8,7 @@ import { colors } from "../data/colors";
 import { userAgentFlags } from "../data/userAgentFlags";
 import FixNavListItem from "./sections/NavIconWrap";
 
-const FixNavigation = ({ variableRef, setRef }) => {
+const FixNavigation = () => {
   const [isVisible, setIsVisible] = useState(false);
   const isNarrow = useMedia({ minWidth: breakpoints.m });
 
@@ -54,13 +54,7 @@ const FixNavigation = ({ variableRef, setRef }) => {
       <FixWrap className={`fix-nav ${isVisible ? "visible" : "hidden"}`}>
         <FixNavList>
           {navImages.map(ni => (
-            <FixNavListItem
-              key={ni.id}
-              variableRef={variableRef}
-              itemRef={ni.ref}
-              alt={ni.alt}
-              setRef={setRef}
-            />
+            <FixNavListItem key={ni.id} itemRef={ni.ref} alt={ni.alt} />
           ))}
         </FixNavList>
       </FixWrap>

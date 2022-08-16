@@ -1,9 +1,10 @@
+import React from "react";
 import styled from "styled-components";
 import { breakpoints } from "../breakpoints/breakpoints";
 import { colors } from "../data/colors";
 import { PubUrl } from "../data/PubUrl";
 
-const Footer = () => {
+const Footer = React.memo(() => {
   const twitterLink = "https://twitter.com/kaishizemi2022";
   return (
     <FooterWrap className='footer'>
@@ -25,7 +26,7 @@ const Footer = () => {
       </FooterInner>
     </FooterWrap>
   );
-};
+});
 export default Footer;
 
 const FooterWrap = styled.div`
