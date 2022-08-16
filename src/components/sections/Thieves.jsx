@@ -6,10 +6,11 @@ import { PubUrl } from "../../data/PubUrl";
 import HeaderOrn from "../ornaments/HeaderOrn";
 
 const Thieves = () => {
-  const { ref, inView } = useInView({
+  const options = {
     threshold: 0.2,
     triggerOnce: true,
-  });
+  };
+  const { ref, inView } = useInView(options);
   return (
     <ThievesSection id='thieves'>
       <HeaderOrn logo='thieves' />
@@ -17,7 +18,7 @@ const Thieves = () => {
         <h3>怪盗団とは</h3>
       </Subtitle>
       <ThievesDescr>
-        <p>
+        <p className={`${inView ? "inview" : ""}`}>
           フェルミアはアトミシアとの侵略戦争に敗北した。
           <br />
           <br />
@@ -90,11 +91,17 @@ const ThievesDescr = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
   p {
     margin: 0;
     color: #ffeecf;
     font-size: 13px;
     width: 95%;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+    &.inview {
+      opacity: 1;
+    }
   }
   @media (min-width: 383px) {
     height: 280px;
