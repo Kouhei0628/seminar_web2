@@ -1,9 +1,35 @@
 import React from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 import Gears from "./Gears";
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const Ornaments = React.memo(() => {
   const gearAmount = [...Array(150)];
+  const option = {
+    scrollTrigger: {
+      trigger: ".under-navi",
+      start: "top bottom",
+      end: "1500 bottom",
+      scrub: true,
+    },
+  };
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const tlA = gsap.timeline(option);
+    tlA.fromTo(
+      ".ornInnL",
+      { transform: "translateX(-100%)" },
+      { transform: "translateX(0%)" }
+    );
+    const tlB = gsap.timeline(option);
+    tlB.fromTo(
+      ".ornInnR",
+      { transform: "translateX(100%)" },
+      { transform: "translateX(30%)" }
+    );
+  });
   return (
     <>
       <OrnamentsL className='ornaments-l'>
