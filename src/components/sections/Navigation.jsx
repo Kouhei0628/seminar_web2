@@ -18,15 +18,10 @@ const Navigation = () => {
                 <button
                   onClick={() => setRef(navImg.ref)}
                   style={{ width: "100%", height: "100%" }}>
-                  <NavIcon
-                    className='nav-icon'
-                    src={`${PubUrl}/img/navigation/nav_${navImg.ref}.png`}
-                    alt={navImg.alt}
-                  />
                   <Link to={`/#${navImg.ref}`}>
-                    <NavLogo
-                      className='nav-logo'
-                      src={`${PubUrl}/img/logos/logo_${navImg.ref}-fff.svg`}
+                    <NavIcon
+                      className='nav-icon'
+                      src={`${PubUrl}/img/navigation/nav_${navImg.ref}.png`}
                       alt={navImg.alt}
                     />
                   </Link>
@@ -92,18 +87,13 @@ const NaviList = styled.ul`
     }
     &:nth-child(3) {
       .nav-icon {
+        transform: translateY(19px);
         max-width: 150px;
       }
     }
     &:nth-child(4) {
-      .nav-logo {
-        top: 45%;
-      }
-    }
-    &:nth-child(1),
-    :nth-child(6) {
       .nav-icon {
-        height: 140px;
+        transform: translateY(29px);
       }
     }
   }
@@ -111,11 +101,4 @@ const NaviList = styled.ul`
 const NavIcon = styled.img`
   max-width: 130px;
   height: auto;
-`;
-const NavLogo = styled.img`
-  position: absolute;
-  height: 33px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 `;

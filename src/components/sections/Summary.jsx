@@ -13,12 +13,7 @@ const Summary = () => {
         <CloudTop />
         <SummWrap id='summary'>
           <HeaderOrn logo='summary' />
-          <SummaryMessage>
-            <img
-              src={`${PubUrl}/img/summary/sum_top-font.png`}
-              alt='アトラクション説明文'
-            />
-          </SummaryMessage>
+          <SummaryMessage />
           <SummaryContents>
             <SummaryList>
               {summaries.map(summary => (
@@ -102,20 +97,16 @@ const SummaryMessage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  img {
-    transform: translateY(-15px);
-    width: calc(260px - 5vw);
+  @media (min-width: 508px) {
+    height: calc(250px + 8vw);
   }
   @media (min-width: ${breakpoints.m}) {
     height: calc(250px + 8vw);
-    img {
-      width: calc(260px + 19vw);
-    }
   }
 `;
 
 const SummaryContents = styled.div`
-  margin: 0 auto;
+  margin: -50px auto 0 auto;
   width: 100%;
   @media (min-width: ${breakpoints.m}) {
     width: 90%;

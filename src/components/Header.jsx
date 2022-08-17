@@ -13,7 +13,7 @@ const Header = React.memo(() => {
         <TopmostCloud />
         <ProvVisual>
           <img
-            src={`${PubUrl}/img/header/header_main.png`}
+            src={`${PubUrl}/img/header/header_main.png?ver=1.0.0`}
             alt='メインヴィジュアル'
           />
         </ProvVisual>
@@ -28,12 +28,12 @@ const Header = React.memo(() => {
         <HeaderVisual>
           <img
             className='header_visual'
-            src={`${PubUrl}/img/header/header_main.png`}
+            src={`${PubUrl}/img/header/header_main.png?ver=1.0.0`}
             alt='メインヴィジュアル'
           />
           <img
             className='blur'
-            src={`${PubUrl}/img/header/header_blur.svg`}
+            src={`${PubUrl}/img/header/header_blur.png?ver=1.0.0`}
             alt='ぼかし画像'
           />
         </HeaderVisual>
@@ -50,7 +50,7 @@ const HeaderWrap = styled.div`
   text-align: center;
 `;
 const TopmostCloud = styled.div`
-  background-image: url(${PubUrl}/img/story/story_bg-top.png);
+  background-image: url(${PubUrl}/img/story/story_bg-top.png?ver=1.0.0);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
@@ -95,7 +95,6 @@ const CloudTop = styled.div`
   background-position: center top;
   width: 100%;
   height: calc(130px + 10vw);
-  filter: brightness(95.5%);
   @media (min-width: ${breakpoints.m}) {
     display: none;
     height: 0;
@@ -105,7 +104,7 @@ const CloudBottom = styled(CloudTop)`
   background-image: url(${PubUrl}/img/story/story_bg-bottom.png);
   background-position: center bottom;
   display: block;
-  filter: brightness(49%);
+  filter: brightness(95%);
   @media (min-width: ${breakpoints.m}) {
     height: 0;
     display: none;
@@ -139,7 +138,7 @@ const HeaderVisual = styled.div`
       }
     }
     &.blur {
-      transform: translateY(calc(-32vw));
+      transform: translateY(calc(-16vw));
     }
   }
   @media (min-width: ${breakpoints.m}) {

@@ -31,10 +31,6 @@ const FixNavListItem = ({ itemRef, alt }) => {
             alt={`${alt}`}
           />
         </NavIconWrap>
-        <NavLogo
-          className='navlogo'
-          src={`${PubUrl}/img/logos/logo_${itemRef}-fff.svg`}
-        />
       </Link>
     </FixNavListItemS>
   );
@@ -61,20 +57,11 @@ const FixNavListItemS = styled.li`
   @media (min-width: ${breakpoints.m}) {
   }
   .navicon {
-    height: 100%;
+    width: 100%;
   }
   &:nth-of-type(1) {
     .navicon {
       width: 70%;
-      height: 100%;
-    }
-  }
-  &:nth-of-type(2) {
-    .navicon {
-      width: 70%;
-    }
-    .navlogo {
-      width: 95%;
     }
   }
   &:nth-of-type(3) {
@@ -85,7 +72,6 @@ const FixNavListItemS = styled.li`
   &:nth-of-type(6) {
     .navicon {
       width: 70%;
-      height: 100%;
     }
   }
   &.visible {
@@ -98,9 +84,4 @@ const NavIcon = styled.img`
 `;
 const NavIconWrap = styled.div`
   width: 100%;
-  height: 50%;
-`;
-
-const NavLogo = styled.img`
-  width: 78%;
 `;

@@ -1,18 +1,20 @@
+import { useInView } from "react-intersection-observer";
 import styled from "styled-components";
 import { breakpoints } from "../../breakpoints/breakpoints";
 import { PubUrl } from "../../data/PubUrl";
 import HeaderOrn from "../ornaments/HeaderOrn";
 
 const Location = () => {
+  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
   return (
-    <LocationSection id='location'>
+    <LocationSection ref={ref} id='location'>
       <HeaderOrn logo='location' />
       <LocationTextA>
         <p>バス乗り場 横浜線相原駅 徒歩2分</p>
       </LocationTextA>
-      <LocationMap>
+      <LocationMap className={`${inView ? "visible" : ""}`}>
         <img
-          src={`${PubUrl}/img/location/loc_1.svg`}
+          src={`${PubUrl}/img/location/loc_1.png`}
           alt='バス乗り場から教室までの道のり'
         />
       </LocationMap>
@@ -24,7 +26,7 @@ const Location = () => {
       </LocationAdress>
       <LocationMap>
         <img
-          src={`${PubUrl}/img/location/loc_2.svg`}
+          src={`${PubUrl}/img/location/loc_2.png`}
           alt='東京造形大学全体図'
         />
       </LocationMap>
@@ -87,5 +89,16 @@ const LocationMap = styled.div`
   width: 90%;
   img {
     width: 100%;
+  }
+  &.visible {
+    animation: mapFadeIn 1s linear forwards;
+    @keyframes mapFadeIn {
+      0% {
+        filter: blur(15px);
+      }
+      100% {
+        filter: blur(0);
+      }
+    }
   }
 `;

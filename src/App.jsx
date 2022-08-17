@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
+import styled from "styled-components";
 
 function App() {
   return (
@@ -11,20 +12,13 @@ function App() {
           <Route
             path={`*`}
             element={
-              <div>
-                <div>
-                  <img
-                    style={{ width: "100%", height: "100%" }}
-                    src={`${process.env.PUBLIC_URL}/img/404horse.jpg`}
-                    alt='404時の画像'
-                  />
-                </div>
+              <NotWrap>
                 <div>
                   <h3 style={{ textAlign: "center", color: "white" }}>
                     404 Page Not Found
                   </h3>
                 </div>
-              </div>
+              </NotWrap>
             }
           />
         </Routes>
@@ -34,3 +28,12 @@ function App() {
 }
 
 export default App;
+
+const NotWrap = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
