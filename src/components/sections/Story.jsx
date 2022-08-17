@@ -57,7 +57,7 @@ const StCloudBottom = styled(StCloudTop)`
 `;
 
 const StoryContent = styled.div`
-  background-image: url(${process.env.PUBLUC_URL}/img/story/story_bg.svg);
+  background-image: url(${process.env.PUBLUC_URL}/img/story/story_bg.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

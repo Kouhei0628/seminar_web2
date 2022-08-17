@@ -109,7 +109,7 @@ const FooterSl = styled.div`
   overflow-x: hidden;
   overflow-y: visible;
   & > div {
-    background-image: url(${PubUrl}/img/footer/foot_sl.svg);
+    background-image: url(${PubUrl}/img/footer/foot_sl.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center bottom;

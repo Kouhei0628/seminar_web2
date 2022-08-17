@@ -43,6 +43,7 @@
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "gsap": "^3.10.4",
+    "react-helmet": "^6.1.0",
     "react-spring": "^9.5.2"
   }
 }

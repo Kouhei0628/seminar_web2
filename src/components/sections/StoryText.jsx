@@ -3,7 +3,6 @@ import { breakpoints } from "../../breakpoints/breakpoints";
 import StoryEachText from "./StoryEachText";
 
 const StoryText = () => {
-  console.log(<StoryEachText key={1} />);
   return (
     <TextWrap>
       <StoryEachText key={1}>私はヴェルスラミナに通う生徒。</StoryEachText>
