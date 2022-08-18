@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ND } from "../../data/newDate";
 import { PubUrl } from "../../data/PubUrl";
 
 const Gears = ({ id, isLeft }) => {
@@ -14,8 +15,6 @@ const Gears = ({ id, isLeft }) => {
   const type = random(1, 18);
   // 回転速度
   const speed = random(55, 78);
-  // 回転方向
-  const direction = random(1, 2).toString();
   return (
     <>
       <GearWrap
@@ -24,7 +23,7 @@ const Gears = ({ id, isLeft }) => {
         size={size}
         positionY={positionY}
         id={id}>
-        <GearObj type={type} speed={speed} direction={direction}></GearObj>
+        <GearObj type={type} speed={speed}></GearObj>
       </GearWrap>
     </>
   );
@@ -45,7 +44,7 @@ const GearWrap = styled.div.attrs(props => ({
 const GearObj = styled.div.attrs(props => ({
   style: {
     animation: `gearRotate ${props.speed}s linear infinite`,
-    backgroundImage: `url(${PubUrl}/img/gears/gear_${props.type}.svg)`,
+    backgroundImage: `url(${PubUrl}/img/gears/gear_${props.type}.svg?ver=${ND})`,
   },
 }))`
   background-repeat: no-repeat;
@@ -54,14 +53,6 @@ const GearObj = styled.div.attrs(props => ({
   height: 100%;
   width: 100%;
   @keyframes gearRotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(-360deg);
-    }
-  }
-  @keyframes gearRotateR {
     0% {
       transform: rotate(0deg);
     }

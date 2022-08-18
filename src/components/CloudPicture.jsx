@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { breakpoints } from "../breakpoints/breakpoints";
+import { ND } from "../data/newDate";
 import { PubUrl } from "../data/PubUrl";
 
 const CloudPicture = () => {
@@ -10,11 +11,11 @@ const CloudPicture = () => {
         <source
           className='webp'
           type='image/webp'
-          srcSet={`${PubUrl}/img/header/header_bganime-p.webp?ver=1.0.0`}
+          srcSet={`${PubUrl}/img/header/header_bganime-p.webp?ver=${ND}`}
         />
         {/* WebP非対応ブラウザ用  */}
         <img
-          src={`${PubUrl}/img/header/header_bganime-p.png?ver=1.0.0`}
+          src={`${PubUrl}/img/header/header_bganime-p.png?ver=${ND}`}
           width='1920'
           height='1080'
           alt='雲の流れる動画'
@@ -25,10 +26,10 @@ const CloudPicture = () => {
         <source
           className='webp'
           type='image/webp'
-          srcSet={`${PubUrl}/img/header/header_bganime-m.webp?ver=1.0.0`}
+          srcSet={`${PubUrl}/img/header/header_bganime-m.webp?ver=${ND}`}
         />
         <img
-          src={`${PubUrl}/img/header/header_bganime-m.png?ver=1.0.0`}
+          src={`${PubUrl}/img/header/header_bganime-m.png?ver=${ND}`}
           width='1920'
           height='1080'
           alt='雲の流れる動画'

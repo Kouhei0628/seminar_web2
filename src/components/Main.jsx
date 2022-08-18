@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { createContext } from "react";
 import Story from "./sections/Story";
 import Thieves from "./sections/Thieves";
 import Summary from "./sections/Summary";
@@ -12,8 +11,6 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Ornaments from "./ornaments/Ornaments";
 import React from "react";
-
-export const ModalContext = createContext();
 
 const Main = React.memo(() => {
   return (

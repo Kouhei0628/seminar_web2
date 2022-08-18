@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import { breakpoints } from "../breakpoints/breakpoints";
+import { ND } from "../data/newDate";
 import { PubUrl } from "../data/PubUrl";
 
 const LogoAndCopy = () => {
   return (
     <LogoAndCopyS>
-      <img src={`${PubUrl}/img/header/header_logocopy.png`} alt='メインロゴ' />
+      <img
+        src={`${PubUrl}/img/header/header_logocopy.png?ver=${ND}`}
+        alt='メインロゴ'
+      />
     </LogoAndCopyS>
   );
 };
