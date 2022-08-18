@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { breakpoints } from "../breakpoints/breakpoints";
 import { colors } from "../data/colors";
+import { ND } from "../data/newDate";
 import { PubUrl } from "../data/PubUrl";
 import CloudPicture from "./CloudPicture";
 import LogoAndCopy from "./LogoAndCopy";
@@ -13,7 +14,7 @@ const Header = React.memo(() => {
         <TopmostCloud />
         <ProvVisual>
           <img
-            src={`${PubUrl}/img/header/header_main.png?ver=1.0.0`}
+            src={`${PubUrl}/img/header/header_main.png?ver=${ND}`}
             alt='メインヴィジュアル'
           />
         </ProvVisual>
@@ -28,12 +29,12 @@ const Header = React.memo(() => {
         <HeaderVisual>
           <img
             className='header_visual'
-            src={`${PubUrl}/img/header/header_main.png?ver=1.0.0`}
+            src={`${PubUrl}/img/header/header_main.png?ver=${ND}`}
             alt='メインヴィジュアル'
           />
           <img
             className='blur'
-            src={`${PubUrl}/img/header/header_blur.png?ver=1.0.0`}
+            src={`${PubUrl}/img/header/header_blur.png?ver=${ND}`}
             alt='ぼかし画像'
           />
         </HeaderVisual>
@@ -50,7 +51,7 @@ const HeaderWrap = styled.div`
   text-align: center;
 `;
 const TopmostCloud = styled.div`
-  background-image: url(${PubUrl}/img/story/story_bg-top.png?ver=1.0.0);
+  background-image: url(${PubUrl}/img/story/story_bg-top.png?ver=${ND});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
@@ -89,7 +90,7 @@ const CloudWrap = styled.div`
   }
 `;
 const CloudTop = styled.div`
-  background-image: url(${PubUrl}/img/story/story_bg-top.png);
+  background-image: url(${PubUrl}/img/story/story_bg-top.png?ver=${ND});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
@@ -101,7 +102,7 @@ const CloudTop = styled.div`
   }
 `;
 const CloudBottom = styled(CloudTop)`
-  background-image: url(${PubUrl}/img/story/story_bg-bottom.png);
+  background-image: url(${PubUrl}/img/story/story_bg-bottom.png?ver=${ND});
   background-position: center bottom;
   display: block;
   filter: brightness(95%);

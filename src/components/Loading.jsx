@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ND } from "../data/newDate";
 import { PubUrl } from "../data/PubUrl";
 
 const Loading = ({ isLoaded }) => {
@@ -16,7 +17,7 @@ const Loading = ({ isLoaded }) => {
 export default Loading;
 const LoadWrap = styled.div`
   background-color: #2c2825;
-  background-image: url(${PubUrl}/img/background/all-bg_gear2.png);
+  background-image: url(${PubUrl}/img/background/all-bg_gear2.png?ver=${ND});
   background-repeat: repeat;
   background-size: 90px;
   background-position: center;
@@ -40,7 +41,7 @@ const LoadWrap = styled.div`
     width: 80vw;
     height: 40vw;
     margin: 0 auto;
-    background-image: url(${PubUrl}/img/loading.svg);
+    background-image: url(${PubUrl}/img/loading.png?ver=${ND});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
