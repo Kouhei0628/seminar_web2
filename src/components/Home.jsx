@@ -5,6 +5,7 @@ import Main from "./Main";
 
 export const RefContext = createContext(null);
 export const SetRefContext = createContext(null);
+export const LoadingContext = createContext(null);
 
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -29,25 +30,17 @@ const Home = () => {
     return () => window.clearTimeout(time);
   }, [newRef]);
   //ローディング表示
-  useEffect(() => {
-    //画像が完全に読み込まれたらsetIsLoadedをtrueにする
-    const time = () =>
-      window.setTimeout(() => {
-        if (!isLoaded) setIsLoaded(true);
-      }, 1000);
-    window.onload = time();
-    return () => {
-      window.clearTimeout(time);
-    };
-  }, [isLoaded]);
+
   return (
-    <RefContext.Provider value={newRef}>
-      <SetRefContext.Provider value={setRef}>
-        <Loading isLoaded={isLoaded} />
-        <FixNavigation style={fixStyle} />
-        <Main />
-      </SetRefContext.Provider>
-    </RefContext.Provider>
+    <LoadingContext.Provider value={[isLoaded, setIsLoaded]}>
+      <RefContext.Provider value={newRef}>
+        <SetRefContext.Provider value={setRef}>
+          <Loading />
+          <FixNavigation style={fixStyle} />
+          <Main />
+        </SetRefContext.Provider>
+      </RefContext.Provider>
+    </LoadingContext.Provider>
   );
 };
 export default Home;

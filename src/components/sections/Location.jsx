@@ -1,7 +1,6 @@
 import { useInView } from "react-intersection-observer";
 import styled from "styled-components";
 import { breakpoints } from "../../breakpoints/breakpoints";
-import { ND } from "../../data/newDate";
 import { PubUrl } from "../../data/PubUrl";
 import HeaderOrn from "../ornaments/HeaderOrn";
 
@@ -15,7 +14,7 @@ const Location = () => {
       </LocationTextA>
       <LocationMap className={`${inView ? "visible" : ""}`}>
         <img
-          src={`${PubUrl}/img/location/loc_1.png?ver=${ND}`}
+          src={`${PubUrl}/img/location/loc_1.png?ver=1.0.0`}
           alt='バス乗り場から教室までの道のり'
         />
       </LocationMap>
@@ -27,7 +26,7 @@ const Location = () => {
       </LocationAdress>
       <LocationMap>
         <img
-          src={`${PubUrl}/img/location/loc_2.png?ver=${ND}`}
+          src={`${PubUrl}/img/location/loc_2.png?ver=1.0.0`}
           alt='東京造形大学全体図'
         />
       </LocationMap>
@@ -47,7 +46,7 @@ const LocationSection = styled.section`
   }
 `;
 const LocationTextA = styled.div`
-  background-image: url(${PubUrl}/img/location/loc_txtbg.svg?ver=${ND});
+  background-image: url(${PubUrl}/img/location/loc_txtbg.svg?ver=1.0.0);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -69,7 +68,7 @@ const LocationAdress = styled.div`
   width: 82%;
   height: 50px;
   margin: 10px auto 0 auto;
-  background-image: url(${PubUrl}/img/location/loc_txtbg2-2.svg?ver=${ND});
+  background-image: url(${PubUrl}/img/location/loc_txtbg2-2.svg?ver=1.0.0);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -77,7 +76,7 @@ const LocationAdress = styled.div`
   align-items: center;
   justify-content: center;
   @media (min-width: ${breakpoints.m}) {
-    background-image: url(${PubUrl}/img/location/loc_txtbg2.svg?ver=${ND});
+    background-image: url(${PubUrl}/img/location/loc_txtbg2.svg?ver=1.0.0);
   }
   p {
     font-size: 12px;

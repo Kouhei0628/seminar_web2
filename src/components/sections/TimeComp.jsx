@@ -4,7 +4,7 @@ const TimeComp = () => {
   const [time, setTime] = useState(null);
   useEffect(() => {
     // 初回レンダリング時の時刻を表示
-    const deadline = new Date(2022, 10 - 1, 15);
+    const deadline = new Date(2022, 10 - 1, 17, 0);
     const now = new Date();
     const diff = deadline - now;
     const d = Math.floor(diff / (1000 * 60 * 60 * 24)).toString();
@@ -16,7 +16,7 @@ const TimeComp = () => {
       setTime(` ${d} 日 ${h} 時間 ${m} 分`);
     }
     const timer = window.setInterval(() => {
-      const _deadline = new Date(2022, 10 - 1, 15);
+      const _deadline = new Date(2022, 10 - 1, 17, 0);
       const _now = new Date();
       const _diff = _deadline - _now;
       const _d = Math.floor(_diff / (1000 * 60 * 60 * 24)).toString();

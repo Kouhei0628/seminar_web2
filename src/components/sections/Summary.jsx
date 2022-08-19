@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { breakpoints } from "../../breakpoints/breakpoints";
 import { colors } from "../../data/colors";
-import { ND } from "../../data/newDate";
 import { PubUrl } from "../../data/PubUrl";
 import summaries from "../../data/summaries";
 import HeaderOrn from "../ornaments/HeaderOrn";
@@ -88,7 +87,7 @@ const SummaryList = styled.ul`
 
 const SummaryMessage = styled.div`
   transform: translateZ(0);
-  background-image: url(${PubUrl}/img/summary/summary-mess_bg.png?ver=${ND});
+  background-image: url(${PubUrl}/img/summary/summary-mess_bg.png?ver=1.0.0);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

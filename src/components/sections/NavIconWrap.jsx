@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { breakpoints } from "../../breakpoints/breakpoints";
 import { colors } from "../../data/colors";
 import navImages from "../../data/mainNav-img";
-import { ND } from "../../data/newDate";
 import { PubUrl } from "../../data/PubUrl";
 import { RefContext, SetRefContext } from "../Home";
 
@@ -28,7 +27,7 @@ const FixNavListItem = ({ itemRef, alt }) => {
         <NavIconWrap>
           <NavIcon
             className={`navicon`}
-            src={`${PubUrl}/img/navigation/fix/fix_${itemRef}.png?ver=${ND}`}
+            src={`${PubUrl}/img/navigation/fix/fix_${itemRef}.png?ver=1.0.0`}
             alt={`${alt}`}
           />
         </NavIconWrap>
