@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import styled from "styled-components";
-import { ND } from "../data/newDate";
 import { PubUrl } from "../data/PubUrl";
+import { LoadingContext } from "./Home";
 
-const Loading = ({ isLoaded }) => {
+const Loading = () => {
+  const [isLoaded] = useContext(LoadingContext);
   return (
     <LoadWrap className={`${isLoaded ? "hidden" : "visible"}`}>
       <div>
@@ -17,7 +19,7 @@ const Loading = ({ isLoaded }) => {
 export default Loading;
 const LoadWrap = styled.div`
   background-color: #2c2825;
-  background-image: url(${PubUrl}/img/background/all-bg_gear2.png?ver=${ND});
+  background-image: url(${PubUrl}/img/background/all-bg_gear2.png?ver=1.0.1);
   background-repeat: repeat;
   background-size: 90px;
   background-position: center;
@@ -28,20 +30,27 @@ const LoadWrap = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  transition: all 0.25s ease-in-out 0.5s;
-  display: flex;
   justify-content: center;
   align-items: center;
-
+  display: flex;
   &.hidden {
-    visibility: hidden;
-    opacity: 0;
+    display: none;
+    animation: fade 0.5s ease-in-out forwards;
+    @keyframes fade {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
   }
+
   div {
     width: 80vw;
     height: 40vw;
     margin: 0 auto;
-    background-image: url(${PubUrl}/img/loading.png?ver=${ND});
+    background-image: url(${PubUrl}/img/loading.png?ver=1.0.1);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -50,7 +59,7 @@ const LoadWrap = styled.div`
     align-items: center;
     img {
       width: 52%;
-      animation: fadeIn 1.5s ease-in-out;
+      animation: fadeIn 0.3s ease-in-out;
       @keyframes fadeIn {
         from {
           filter: blur(10px);

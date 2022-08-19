@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ND } from "../../data/newDate";
 import { PubUrl } from "../../data/PubUrl";
 
 const Gears = ({ id, isLeft }) => {
@@ -44,7 +43,7 @@ const GearWrap = styled.div.attrs(props => ({
 const GearObj = styled.div.attrs(props => ({
   style: {
     animation: `gearRotate ${props.speed}s linear infinite`,
-    backgroundImage: `url(${PubUrl}/img/gears/gear_${props.type}.svg?ver=${ND})`,
+    backgroundImage: `url(${PubUrl}/img/gears/gear_${props.type}.svg?ver=1.0.0)`,
   },
 }))`
   background-repeat: no-repeat;

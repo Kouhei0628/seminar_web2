@@ -1,20 +1,23 @@
 import React from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { breakpoints } from "../breakpoints/breakpoints";
 import { colors } from "../data/colors";
-import { ND } from "../data/newDate";
 import { PubUrl } from "../data/PubUrl";
 import CloudPicture from "./CloudPicture";
+import { LoadingContext } from "./Home";
 import LogoAndCopy from "./LogoAndCopy";
 
 const Header = React.memo(() => {
+  const [isLoaded, setIsLoaded] = useContext(LoadingContext);
   return (
     <header className='header'>
-      <HeaderWrap>
+      <HeaderWrap onLoad={() => setIsLoaded(true)}>
         <TopmostCloud />
         <ProvVisual>
           <img
-            src={`${PubUrl}/img/header/header_main.png?ver=${ND}`}
+            className={`${isLoaded ? "visible" : ""}`}
+            src={`${PubUrl}/img/header/header_main.png?ver=1.0.1`}
             alt='メインヴィジュアル'
           />
         </ProvVisual>
@@ -28,13 +31,13 @@ const Header = React.memo(() => {
         </CloudWrap>
         <HeaderVisual>
           <img
-            className='header_visual'
-            src={`${PubUrl}/img/header/header_main.png?ver=${ND}`}
+            className={`header_visual ${isLoaded ? "visible" : ""}`}
+            src={`${PubUrl}/img/header/header_main.png?ver=1.0.1`}
             alt='メインヴィジュアル'
           />
           <img
             className='blur'
-            src={`${PubUrl}/img/header/header_blur.png?ver=${ND}`}
+            src={`${PubUrl}/img/header/header_blur.png?ver=1.0.1`}
             alt='ぼかし画像'
           />
         </HeaderVisual>
@@ -51,7 +54,7 @@ const HeaderWrap = styled.div`
   text-align: center;
 `;
 const TopmostCloud = styled.div`
-  background-image: url(${PubUrl}/img/story/story_bg-top.png?ver=${ND});
+  background-image: url(${PubUrl}/img/story/story_bg-top.png?ver=1.0.1);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
@@ -90,7 +93,7 @@ const CloudWrap = styled.div`
   }
 `;
 const CloudTop = styled.div`
-  background-image: url(${PubUrl}/img/story/story_bg-top.png?ver=${ND});
+  background-image: url(${PubUrl}/img/story/story_bg-top.png?ver=1.0.1);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
@@ -102,7 +105,7 @@ const CloudTop = styled.div`
   }
 `;
 const CloudBottom = styled(CloudTop)`
-  background-image: url(${PubUrl}/img/story/story_bg-bottom.png?ver=${ND});
+  background-image: url(${PubUrl}/img/story/story_bg-bottom.png?ver=1.0.1);
   background-position: center bottom;
   display: block;
   filter: brightness(95%);
@@ -118,23 +121,25 @@ const HeaderVisual = styled.div`
   & > img {
     width: 100%;
     &.header_visual {
-      animation: scaleIn2 2s ease forwards 2s;
       filter: blur(50px);
-      @keyframes scaleIn2 {
-        0% {
-          filter: blur(50px);
-        }
-        68% {
-          filter: blur(0px);
-        }
-        70% {
-          filter: brightness(100%) blur(0px);
-        }
-        85% {
-          filter: brightness(180%) blur(5px);
-        }
-        100% {
-          filter: brightness(100%) blur(0px);
+      &.visible {
+        animation: scaleIn2 2s ease forwards;
+        @keyframes scaleIn2 {
+          0% {
+            filter: blur(50px);
+          }
+          68% {
+            filter: blur(0px);
+          }
+          70% {
+            filter: brightness(100%) blur(0px);
+          }
+          85% {
+            filter: brightness(180%) blur(5px);
+          }
+          100% {
+            filter: brightness(100%) blur(0px);
+          }
         }
       }
     }
@@ -157,21 +162,25 @@ const ProvVisual = styled.div`
   overflow: hidden;
   img {
     width: 100%;
-    animation: scaleIn 2s ease forwards 1.5s;
-    transform-origin: center center;
-    @keyframes scaleIn {
-      0% {
-        transform: scale(1.5);
-      }
-      70% {
-        transform: scale(1);
-        filter: brightness(100%);
-      }
-      85% {
-        filter: brightness(180%);
-      }
-      100% {
-        filter: brightness(100%);
+    opacity: 0;
+    &.visible {
+      opacity: 1;
+      animation: scaleIn 2s ease forwards;
+      transform-origin: center center;
+      @keyframes scaleIn {
+        0% {
+          transform: scale(1.5);
+        }
+        70% {
+          transform: scale(1);
+          filter: brightness(100%);
+        }
+        85% {
+          filter: brightness(180%);
+        }
+        100% {
+          filter: brightness(100%);
+        }
       }
     }
   }
