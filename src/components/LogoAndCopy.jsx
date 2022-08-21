@@ -17,7 +17,6 @@ export default LogoAndCopy;
 const LogoAndCopyS = styled.div`
   height: 100%;
   width: 100%;
-  /* margin-top: -90px; */
   @media (min-width: ${breakpoints.m}) {
     margin-top: 0;
   }
@@ -28,7 +27,7 @@ const LogoAndCopyS = styled.div`
   justify-content: center;
   align-items: center;
   img {
-    width: 72%;
+    width: 82%;
     @media (min-width: ${breakpoints.m}) {
       width: 48%;
     }

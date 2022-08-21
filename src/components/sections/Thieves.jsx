@@ -91,7 +91,6 @@ const ThievesDescr = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   p {
     margin: 0;
     color: #ffeecf;
@@ -114,24 +113,26 @@ const ThievesDescr = styled.div`
     height: 180px;
     p {
       font-size: 11px;
-      width: 75%;
+      width: 90%;
     }
   }
+  @media (min-width: 527px) {
+    width: 70%;
+  }
   @media (min-width: 620px) {
-    height: 220px;
-    height: 100px;
+    width: 80%;
+  }
+  @media (min-width: 800px) {
+    height: 200px;
+    max-width: 500px;
+  }
+  @media (min-width: ${breakpoints.l}) {
+    max-width: 680px;
+    height: 156px;
     background-image: url(${PubUrl}/img/thieves/thieves_descbg-l.svg);
-  }
-  @media (min-width: 620px) {
     p {
-      font-size: 8px;
+      font-size: 12px;
     }
-    @media (min-width: ${breakpoints.l}) {
-      p {
-        font-size: 10px;
-      }
-    }
-    height: 130px;
   }
 `;
 const ThievesContent = styled.div`
@@ -141,7 +142,11 @@ const ThievesContent = styled.div`
   background-size: contain;
   margin: 27px auto;
   padding: 5px 0px;
+  height: 100%;
   width: 86%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @media (min-width: ${breakpoints.m}) {
     background-image: url(${PubUrl}/img/thieves/thieves_listbg-l.svg);
   }
@@ -152,12 +157,15 @@ const ThievesContent = styled.div`
 const ThievesList = styled.ul`
   padding: 0;
   margin: 20px auto;
-  width: 90%;
+  width: 89%;
+  height: 95%;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
+  @media (min-width: ${breakpoints.m}) {
+  }
   li {
     width: 40%;
     @media (min-width: ${breakpoints.m}) {

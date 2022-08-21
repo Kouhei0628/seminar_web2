@@ -37,7 +37,7 @@ const GearWrap = styled.div.attrs(props => ({
     transform: `translateX(${props.isLeft ? "-" : ""}${props.positionX}%)`,
   },
 }))`
-  overflow: hidden;
+  overflow: visible;
 `;
 
 const GearObj = styled.div.attrs(props => ({

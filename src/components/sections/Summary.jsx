@@ -41,8 +41,11 @@ const Summary = () => {
 export default Summary;
 
 const SummarySection = styled.section`
-  margin: 50px auto;
+  margin: 0px auto;
   width: 100vw;
+  @media (min-width: 940px) {
+    margin: -252px auto 0 auto;
+  }
 `;
 const CloudWrap = styled.div`
   width: 100%;
@@ -64,7 +67,7 @@ const SummaryList = styled.ul`
   transform: translateZ(0);
   padding: 0;
   margin: 0 auto;
-  width: 95%;
+  width: 90%;
   list-style: none;
   display: flex;
   justify-content: center;
@@ -81,7 +84,7 @@ const SummaryList = styled.ul`
   }
   @media (min-width: ${breakpoints.m}) {
     transform: translateY(-50px);
-    width: 80%;
+    width: 84%;
   }
 `;
 
@@ -137,21 +140,21 @@ const Description = styled.div`
   padding: 0 10px;
   p {
     margin: 0;
-    font-size: 11px;
-    width: 80%;
+    font-size: 9px;
+    width: max(87%, 150px);
     font-weight: 600;
+    @media (min-width: 377px) {
+      font-size: 12px;
+    }
+    @media (min-width: ${breakpoints.m}) {
+      font-size: 9px;
+    }
+    @media (min-width: 1018px) {
+      font-size: 12px;
+    }
   }
   @media (min-width: ${breakpoints.m}) {
     height: calc(15px + 5vw);
-    p {
-      font-size: 9px;
-      width: 95%;
-    }
-  }
-  @media (min-width: 900px) {
-    p {
-      font-size: 11px;
-    }
   }
 `;
 

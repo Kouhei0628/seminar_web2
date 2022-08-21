@@ -30,42 +30,18 @@ button {
 }
 
 .header {
-    height: calc(290vw - 10vw);
+    height: calc(1300px + 45vw);
 }
 
-@media (min-width: 360px) {
+@media (min-width:1025px) {
     .header {
-        height: calc( 295vw - 10vw);
-    }
-}
-
-@media (min-width: 480px) {
-    .header {
-        height: 240vw;
-    }
-}
-
-@media (min-width: 580px) {
-    .header {
-        height: 190vw;
+        height: calc(603px + 52vw);
     }
 }
 
 @media (min-width: 630px) {
     .header {
-        height: 150vw;
-    }
-}
-
-@media (min-width: 768px) {
-    .header {
-        height: 120vw;
-    }
-}
-
-@media (min-width:1025px) {
-    .header {
-        height: 100vw;
+        height: calc(603px + 52vw);
     }
 }
 

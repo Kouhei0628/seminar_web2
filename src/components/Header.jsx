@@ -85,7 +85,7 @@ const CloudWrap = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  top: calc(10px + 30vw);
+  top: calc(90px + 30vw);
   left: 0;
   z-index: 1;
   @media (min-width: ${breakpoints.m}) {
@@ -98,7 +98,7 @@ const CloudTop = styled.div`
   background-size: cover;
   background-position: center top;
   width: 100%;
-  height: calc(130px + 10vw);
+  height: calc(250px + 25vw);
   @media (min-width: ${breakpoints.m}) {
     display: none;
     height: 0;
@@ -156,23 +156,24 @@ const HeaderVisual = styled.div`
 `;
 
 const ProvVisual = styled.div`
-  width: 100%;
-  height: 60vw;
-  display: block;
+  height: 40%;
+  display: flex;
+  justify-content: center;
   overflow: hidden;
   img {
-    width: 100%;
+    margin: 0 auto;
     opacity: 0;
+    transform: translate(18%, -10%);
+    transform-origin: center center;
     &.visible {
       opacity: 1;
       animation: scaleIn 2s ease forwards;
-      transform-origin: center center;
       @keyframes scaleIn {
         0% {
-          transform: scale(1.5);
+          transform: scale(1.5) translate(18%, -10%);
         }
         70% {
-          transform: scale(1);
+          transform: scale(1) translate(18%, -10%);
           filter: brightness(100%);
         }
         85% {

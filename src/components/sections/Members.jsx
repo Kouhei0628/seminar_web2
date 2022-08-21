@@ -21,9 +21,12 @@ const Members = () => {
 export default Members;
 
 const MembersSection = styled.section`
-  margin: 0 auto;
+  margin: -42px auto 0 auto;
   width: 100vw;
   text-align: center;
+  @media (min-width: 940px) {
+    margin: -252px auto 0 auto;
+  }
 `;
 const CWrap = styled(CloudWrap)``;
 const CTop = styled(CloudTop)`
