@@ -29,8 +29,6 @@ const Home = () => {
     }, 1);
     return () => window.clearTimeout(time);
   }, [newRef]);
-  //ローディング表示
-
   return (
     <LoadingContext.Provider value={[isLoaded, setIsLoaded]}>
       <RefContext.Provider value={newRef}>

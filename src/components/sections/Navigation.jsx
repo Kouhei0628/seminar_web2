@@ -13,16 +13,16 @@ const Navigation = () => {
       <NavigationStyle>
         <NavListWrap>
           <NaviList>
-            {navImages.map(navImg => (
-              <li key={navImg.id}>
+            {navImages.map(ni => (
+              <li key={ni.id}>
                 <button
-                  onClick={() => setRef(navImg.ref)}
+                  onClick={() => setRef(ni.ref)}
                   style={{ width: "100%", height: "100%" }}>
-                  <Link to={`/#${navImg.ref}`}>
+                  <Link to={`/#${ni.ref}`}>
                     <NavIcon
                       className='nav-icon'
-                      src={`${PubUrl}/img/navigation/nav_${navImg.ref}.png`}
-                      alt={navImg.alt}
+                      src={`${PubUrl}/img/navigation/nav_${ni.ref}.png`}
+                      alt={ni.alt}
                     />
                   </Link>
                 </button>
@@ -39,9 +39,9 @@ export default Navigation;
 const NavigationStyle = styled.nav`
   position: relative;
   width: 100%;
-  height: 300px;
-  margin: 110px auto;
-  @media (max-width: ${breakpoints.m}) {
+  height: 280px;
+  margin: 0px auto;
+  @media (max-width: 629px) {
     display: none;
   }
   @media (min-width: 750px) {
@@ -58,13 +58,10 @@ const NavListWrap = styled.div`
   margin: 0 auto;
 `;
 const NaviList = styled.ul`
-  position: absolute;
-  top: 0;
-  left: 50%;
-  z-index: 2;
-  transform: translateX(-50%);
+  position: relative;
   margin: 80px auto;
-  width: 80%;
+  width: min(80%, 670px);
+  height: 100%;
   padding: 0;
   list-style: none;
   display: flex;
@@ -72,10 +69,11 @@ const NaviList = styled.ul`
   justify-content: center;
   gap: 45px;
   li {
+    position: absolute;
+    z-index: 2;
     margin: 0;
     max-width: 137px;
     height: 137px;
-    position: relative;
     border-radius: 50%;
     &:hover {
       transition: all 0.2s linear;
@@ -85,16 +83,37 @@ const NaviList = styled.ul`
         filter: drop-shadow(0 0 15px black);
       }
     }
-    &:nth-child(3) {
-      .nav-icon {
-        transform: translateY(19px);
-        max-width: 150px;
+    &:nth-child(1),
+    &:nth-child(6) {
+      &:hover {
+        transform: scale(1.1) translateY(-70%);
       }
     }
+    &:nth-child(1) {
+      left: 0;
+      top: 50%;
+      transform: translateY(-70%) scale(1);
+    }
+    &:nth-child(2) {
+      left: 25%;
+      top: 0%;
+    }
+    &:nth-child(3) {
+      left: 55%;
+      top: 0%;
+    }
     &:nth-child(4) {
-      .nav-icon {
-        transform: translateY(29px);
-      }
+      bottom: 0;
+      left: 25%;
+    }
+    &:nth-child(5) {
+      bottom: 0;
+      left: 55%;
+    }
+    &:nth-child(6) {
+      top: 50%;
+      right: 0;
+      transform: translateY(-70%) scale(1);
     }
   }
 `;

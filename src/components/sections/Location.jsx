@@ -37,12 +37,15 @@ export default Location;
 
 const LocationSection = styled.section`
   transform: translateZ(0);
-  margin: 40px auto;
+  margin: -110px auto 0 auto;
   width: 100%;
   text-align: center;
   overflow: hidden;
   @media (min-width: ${breakpoints.m}) {
     width: 59%;
+  }
+  @media (min-width: 940px) {
+    margin: -252px auto 0 auto;
   }
 `;
 const LocationTextA = styled.div`

@@ -29,7 +29,7 @@ const StorySection = styled.section`
 `;
 
 const StoryWrap = styled.div`
-  margin-top: -85px;
+  margin: -85px 0 -85px 0;
   background-color: ${colors.storyBg};
 `;
 

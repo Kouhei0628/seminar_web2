@@ -33,6 +33,20 @@ const PictureStyle = styled.div`
   height: 100%;
   opacity: 0;
   animation: cloud 2s linear forwards 2s;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 58px;
+    transform: translateY(100%);
+    background: linear-gradient(
+      to bottom,
+      rgba(229, 228, 218, 1) 0%,
+      rgba(229, 228, 218, 0) 90%
+    );
+  }
   @keyframes cloud {
     0% {
       opacity: 0;
