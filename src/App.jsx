@@ -14,9 +14,9 @@ function App() {
             element={
               <NotWrap>
                 <div>
-                  <h3 style={{ textAlign: "center", color: "white" }}>
+                  <h2 style={{ textAlign: "center", color: "white" }}>
                     404 Page Not Found
-                  </h3>
+                  </h2>
                 </div>
               </NotWrap>
             }

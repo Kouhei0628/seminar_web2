@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { breakpoints } from "../breakpoints/breakpoints";
-import { colors } from "../data/colors";
 import { PubUrl } from "../data/PubUrl";
 
 const Footer = React.memo(() => {
@@ -41,7 +40,6 @@ const FooterInner = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
-  /* background-color: ${colors.membersBg}; */
 `;
 const FooterWhiteSpace = styled.div`
   background-image: url(${PubUrl}/img/footer/foot_smoke.png);

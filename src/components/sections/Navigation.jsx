@@ -9,29 +9,27 @@ import { SetRefContext } from "../Home";
 const Navigation = () => {
   const setRef = useContext(SetRefContext);
   return (
-    <>
-      <NavigationStyle>
-        <NavListWrap>
-          <NaviList>
-            {navImages.map(ni => (
-              <li key={ni.id}>
-                <button
-                  onClick={() => setRef(ni.ref)}
-                  style={{ width: "100%", height: "100%" }}>
-                  <Link to={`/#${ni.ref}`}>
-                    <NavIcon
-                      className='nav-icon'
-                      src={`${PubUrl}/img/navigation/nav_${ni.ref}.png`}
-                      alt={ni.alt}
-                    />
-                  </Link>
-                </button>
-              </li>
-            ))}
-          </NaviList>
-        </NavListWrap>
-      </NavigationStyle>
-    </>
+    <NavigationStyle>
+      <NavListWrap>
+        <NaviList>
+          {navImages.map(ni => (
+            <li key={ni.id}>
+              <button
+                onClick={() => setRef(ni.ref)}
+                style={{ width: "100%", height: "100%" }}>
+                <Link to={`/#${ni.ref}`}>
+                  <NavIcon
+                    className='nav-icon'
+                    src={`${PubUrl}/img/navigation/nav_${ni.ref}.png`}
+                    alt={ni.alt}
+                  />
+                </Link>
+              </button>
+            </li>
+          ))}
+        </NaviList>
+      </NavListWrap>
+    </NavigationStyle>
   );
 };
 export default Navigation;
