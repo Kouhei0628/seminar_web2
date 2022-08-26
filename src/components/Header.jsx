@@ -161,6 +161,7 @@ const ProvVisual = styled.div`
   justify-content: center;
   overflow: hidden;
   img {
+    height: 100%;
     margin: 0 auto;
     opacity: 0;
     transform: translate(18%, -10%);
