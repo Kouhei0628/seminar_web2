@@ -1,4 +1,3 @@
-const commonImg = "DQ.png";
 const summaries = [{
         id: 1,
         img: "time",
