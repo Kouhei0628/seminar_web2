@@ -36,7 +36,7 @@ const Ornaments = React.memo(() => {
         <OrnamentWrap className='ornWrapL'>
           <OrnamentInner className='ornInnL'>
             {gearAmount.map((_, i) => (
-              <Gears key={i} id={i} isLeft />
+              <Gears key={i} isLeft />
             ))}
           </OrnamentInner>
         </OrnamentWrap>
