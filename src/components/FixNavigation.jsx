@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useMedia } from "use-media";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { breakpoints } from "../breakpoints/breakpoints";
 import { PubUrl } from "../data/PubUrl";
 import navImages from "../data/mainNav-img";
@@ -37,21 +37,19 @@ const FixNavigation = () => {
     return () => window.removeEventListener("scroll", toggleVisibility);
   });
 
-  const oCOpen = () => {
-    window.open("https://twitter.com/kaishizemi2022", "_blank");
-  };
+  const twiLink = "https://twitter.com/kaishizemi2022";
 
   return (
     <>
-      <FixSNSIcon className={`${isVisible ? "visible" : "hidden"}`}>
-        <button onClick={oCOpen}>
+      <FixSNSIcon className={`${isVisible ? "visible" : ""}`}>
+        <a href={twiLink} target={`_blank`}>
           <img
             src={`${PubUrl}/img/navigation/fix/fix_twitter.svg`}
             alt={`Twitterアイコン`}
           />
-        </button>
+        </a>
       </FixSNSIcon>
-      <FixWrap className={`fix-nav ${isVisible ? "visible" : "hidden"}`}>
+      <FixWrap className={`fix-nav ${isVisible ? "visible" : ""}`}>
         <FixNavList>
           {navImages.map(ni => (
             <FixNavListItem key={ni.id} itemRef={ni.ref} alt={ni.alt} />
@@ -65,34 +63,27 @@ export default FixNavigation;
 
 const FixSNSIcon = styled.div`
   position: fixed;
-  bottom: calc(43px + 10vw + 15px);
+  bottom: calc(58px + 10vw);
   right: 13px;
   width: 68px;
   height: 68px;
   z-index: 400;
   visibility: hidden;
+  opacity: 0;
   transition: all 0.5s ease-in-out;
   transform: translateX(100%) rotate(90deg);
-  -moz-transform: translateX(100%) rotate(90deg);
   &.visible {
-    opacity: 0.9;
+    opacity: 0.8;
     visibility: visible;
     transform: translateX(0) rotate(0deg);
   }
-  &.hidden {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(100%) rotate(90deg);
-  }
   button {
-    cursor: pointer;
     width: 100%;
     height: 100%;
     img {
       width: 100%;
     }
   }
-
   @media (min-width: ${breakpoints.m}) {
     display: none;
   }
@@ -107,16 +98,14 @@ const FixWrap = styled.div`
   width: 100%;
   background-color: ${colors.summaryBg};
   visibility: hidden;
+  opacity: 0;
   transition: all 0.5s ease-in-out;
   transform: translateY(100%);
   transform-origin: top;
   &.visible {
+    opacity: 1;
     visibility: visible;
     transform: translateY(0);
-  }
-  &.hidden {
-    visibility: hidden;
-    transform: translateY(100%);
   }
   @media (min-width: ${breakpoints.m}) {
     display: none;
