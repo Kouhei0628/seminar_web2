@@ -42,7 +42,7 @@ const FixNavigation = () => {
   return (
     <>
       <FixSNSIcon className={`${isVisible ? "visible" : ""}`}>
-        <a href={twiLink} target={`_blank`}>
+        <a href={twiLink} target={`_blank`} rel='noreferrer'>
           <img
             src={`${PubUrl}/img/navigation/fix/fix_twitter.svg`}
             alt={`Twitterアイコン`}
