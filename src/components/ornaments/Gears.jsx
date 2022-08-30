@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { PubUrl } from "../../data/PubUrl";
 
-const Gears = ({ id, isLeft }) => {
+const Gears = ({ isLeft }) => {
   // それぞれの歯車の位置と大きさ回転速度、種類をランダム出力
   const random = (min, max) =>
     Math.floor(Math.random() * (max - min + 1)) + min;
@@ -20,8 +20,7 @@ const Gears = ({ id, isLeft }) => {
         positionX={positionX}
         isLeft={isLeft}
         size={size}
-        positionY={positionY}
-        id={id}>
+        positionY={positionY}>
         <GearObj type={type} speed={speed}></GearObj>
       </GearWrap>
     </>
