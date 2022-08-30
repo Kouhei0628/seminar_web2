@@ -17,6 +17,7 @@ const Loading = () => {
   );
 };
 export default Loading;
+
 const LoadWrap = styled.div`
   background-color: #2c2825;
   background-image: url(${PubUrl}/img/background/all-bg_gear2.png?ver=1.0.1);
@@ -33,19 +34,14 @@ const LoadWrap = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
+  visibility: visible;
+  transition: all ease-in-out 0.5s;
+  transition-delay: 1s;
+  opacity: 1;
   &.hidden {
-    display: none;
-    animation: fade 0.5s ease-in-out forwards;
-    @keyframes fade {
-      0% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
+    opacity: 0;
+    visibility: hidden;
   }
-
   div {
     width: 80vw;
     height: 40vw;
